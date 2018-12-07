@@ -9,10 +9,11 @@
 # And be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.7/en/old-client.html
 #
+# <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 default: &default
   adapter: mysql2
   encoding: utf8
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: 5
   username: root
   password:
   socket: /tmp/mysql.sock
@@ -50,5 +51,13 @@ test:
 production:
   <<: *default
   database: freemarket_sample_40c_production
-  username: freemarket_sample_40c
-  password: <%= ENV['FREEMARKET_SAMPLE_40C_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
+
+
+
+
+
+
+
