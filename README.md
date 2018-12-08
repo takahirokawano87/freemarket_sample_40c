@@ -7,7 +7,7 @@
 |nickname|string|null: false、unique:true|
 |image|text|
 |email|string|null: false, unique:true|
-|password|string|
+|password|string|null: false, unique:true|
 |profile|text|
 
 ### Association
