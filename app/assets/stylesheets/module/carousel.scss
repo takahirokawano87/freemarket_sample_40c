@@ -1,0 +1,91 @@
+.carousel-indicators {
+  width: 100%;
+  margin-left: 20px;
+  & li {
+    border-radius: 50%;
+    margin: 1px 10px;
+    height: 12px;
+    max-width: 12px;
+    opacity: 4;
+  }
+  .active {
+    border: 1px rgba(0,0,0,0.5);
+    margin: 1px 10px;
+    height: 12px;
+    max-width: 12px;
+    background: rgba(0,0,0,0.5);
+　}
+}
+
+.carousel-control{
+  background: rgba(0,0,0,0);
+
+  &:hover{
+    background: rgba(0,0,0,0);
+  }
+  img{
+    height:46px;
+    width:31px;
+  }
+}
+
+.carousel-inner{
+  .active{
+    background-image: url(https://www.mercari.com/jp/assets/img/common/jp/top/main_bg_pc.jpg);
+    background-size: cover;
+    .top-main-visual{
+      @include carousel-visual();
+      .top-main-visual-content{
+        float: left;
+        h2{
+          margin: 40px 0  20px 0;
+          font-size: 60px;
+          line-height: 1.2;
+          font-family: cursive;
+          font-weight: bold;
+        }
+        p{
+          font-size: 18px;
+          margin: 10px 0 30px 0;
+          line-height: 1.77778;
+        }
+        .top-main-visual-store{
+          width:100%;
+          a{
+            display: block;
+            .google-icon{
+              margin-left: 20px;
+            }
+          }
+        }
+      }
+      .top-main-visual-img{
+        float:right;
+        img{
+          height: 390px;
+        }
+      }
+    }
+  }
+  .item2{
+    background-image: url(https://www.mercari.com/jp/assets/img/common/jp/top/top-banner-new-register.png);
+    background-size: cover;
+    .top-main-visual{
+      @include carousel-visual();
+    }
+  }
+  .item3{
+    background-image: url(https://www.mercari.com/jp/assets/img/common/jp/top/top-banner-kusanagi-xmas.jpg);
+    background-size: cover;
+    .top-main-visual{
+      @include carousel-visual();
+    }
+  }
+  .item4{
+    background-image: url(https://www.mercari.com/jp/assets/img/common/jp/top/top-banner-welcome.png);
+    background-position:-270px 0;
+    .top-main-visual{
+      @include carousel-visual();
+    }
+  }
+}
