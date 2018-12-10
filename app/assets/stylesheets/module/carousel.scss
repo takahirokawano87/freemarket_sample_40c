@@ -1,3 +1,23 @@
+.carousel-indicators {
+  width: 100%;
+  margin-left: 20px;
+  & li {
+    border-radius: 50%;
+    margin: 1px 10px;
+    height: 12px;
+    max-width: 12px;
+    opacity: 4;
+  }
+  .active {
+    border: 1px rgba(0,0,0,0.5);
+    margin: 1px 10px;
+    height: 12px;
+    max-width: 12px;
+    background: rgba(0,0,0,0.5);
+  }
+}
+
+
 .carousel-inner{
   .active{
     background-image: url(https://www.mercari.com/jp/assets/img/common/jp/top/main_bg_pc.jpg);
