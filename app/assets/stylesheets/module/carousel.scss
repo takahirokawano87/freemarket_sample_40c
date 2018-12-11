@@ -14,12 +14,11 @@
     height: 12px;
     max-width: 12px;
     background: rgba(0,0,0,0.5);
-　}
+  }
 }
 
 .carousel-control{
-  background: rgba(0,0,0,0);
-
+  background: rgba(0,0,0,0) !important;
   &:hover{
     background: rgba(0,0,0,0);
   }
