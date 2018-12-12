@@ -1,0 +1,81 @@
+.header
+  .header__inner
+    .header__inner-upper.clearfix
+      %h1.left
+        = link_to do
+          = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?206587138", size: "134x36"
+      = form_with url: items_path, class: "header__inner-upper-form right", method: :get, local: true do |f|
+        = f.text_field :keyword, type: 'search', class: 'input-area', placeholder: "キーワードから探す"
+        = button_tag type: 'submit', class: "icon-search" do
+          %i.fa.fa-search
+    .header__inner-nav.clearfix
+      .header__inner-nav-box.left
+        %ul.header-nav
+          %li.header-nav-root
+            = link_to items_path do
+              カテゴリーから探す
+            %ul.header-nav-parent
+              %li.header-nav-parent-list
+                = link_to items_path do
+                  レディース
+                %ul.header-nav-child
+                  %li.header-nav-child-list
+                    = link_to items_path do
+                      トップス
+                    %ul.header-nav-grand-child
+                      %li.header-nav-grand-child-list
+                        = link_to items_path do
+                          Tシャツ/カットソー(半袖/袖なし)
+                      %li.header-nav-grand-child-list
+                        = link_to items_path do
+                          キャミソール
+                  %li.header-nav-child-list
+                    = link_to items_path do
+                      ジャケット/アウター
+                    %ul.header-nav-grand-child
+                      %li.header-nav-grand-child-list
+                        = link_to items_path do
+                          トレンチコート
+                      %li.header-nav-grand-child-list
+                        = link_to items_path do
+                          ダッフルコート
+              %li.header-nav-parent-list
+                = link_to items_path do
+                  メンズ
+                %ul.header-nav-child
+                  %li.header-nav-child-list
+                    = link_to items_path do
+                      トップス
+                    %ul.header-nav-grand-child
+                      %li.header-nav-grand-child-list
+                        = link_to items_path do
+                          Tシャツ/カットソー(半袖/袖なし)
+                      %li.header-nav-grand-child-list
+                        = link_to items_path do
+                          ポロシャツ
+                  %li.header-nav-child-list
+                    = link_to items_path do
+                      ジャケット/アウター
+                    %ul.header-nav-grand-child
+                      %li.header-nav-grand-child-list
+                        = link_to items_path do
+                          テーラードジャケット
+                      %li.header-nav-grand-child-list
+                        = link_to items_path do
+                          ダウンジャケット
+          %li.header-nav-root
+            = link_to items_path do
+              ブランドから探す
+            %ul.header-nav-parent
+              %li.header-nav-parent-list
+                = link_to items_path do
+                  ナイキ
+              %li.header-nav-parent-list
+                = link_to items_path do
+                  アディダス
+      .header__inner-nav-box.right
+        .header-login-nav
+          = link_to items_path do
+            .header-btn.btn-red ログイン
+          = link_to items_path do
+            .header-btn.header-signup 新規会員登録
