@@ -3,3 +3,8 @@
   height:390px;
   width:70%;
 }
+@mixin icon-position(){
+  position: absolute;
+  top: 0;
+  left: 16px;
+}
