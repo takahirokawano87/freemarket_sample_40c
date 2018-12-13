@@ -1,7 +1,8 @@
 .header {
   position: relative;
+  background-color: #fff;
   &__inner {
-    width: 930px;
+    width: 950px;
     margin: 0 auto;
     padding: 3px 0 0;
     &-upper {
@@ -15,6 +16,7 @@
           font-size: 14px;
           padding: 9px 32px 9px 8px;
           background-color: #fafafa;
+          border: 1px solid #ccc;
           border-radius: 5px;
         }
         .icon-search {

@@ -1,0 +1,271 @@
+* {
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  border-style: solid;
+  border-width: 0;
+  font-size: inherit;
+  line-height: inherit;
+  box-sizing: inherit;
+}
+
+section {
+  display: block;
+}
+
+body {
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  color: rgb(51, 51, 51);
+}
+
+.l-chapter-container:first-child {
+  margin: 0;
+}
+
+.l-chapter-container {
+  margin: 40px 0 0;
+  background: #fff;
+}
+
+.l-chapter-head {
+  font-size: 24px;
+  padding: 8px 24px;
+  border-bottom: 1px solid #f5f5f5;
+  text-align: center
+}
+
+h2 {
+  font-size: 22px;
+  line-height: 1.4;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.l-single-inner {
+  padding: 64px;
+  border-top: 1px solid #f5f5f5;
+}
+
+.form-group:first-child {
+  margin: 0;
+}
+
+.form-group {
+  margin: 40px 0 0;
+}
+
+.form-group label {
+  font-weight: 600;
+}
+
+label {
+  display: inline-block;
+  touch-action: manipulation;
+}
+
+.form-require {
+  background: #ea352d;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+}
+
+.mypage-identification .address-info {
+  margin: 0 0 0 4px;
+}
+
+.mypage-identification .address-info address {
+  font-size: 16px;
+  margin: 8px 0 0;
+}
+
+.form-require {
+  background: #ea352d;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 14px;
+  vertical-align: top;
+}
+
+.mypage-identification .address-info {
+  margin: 0 0 0 4px;
+}
+
+.mypage-identification .address-info address {
+  font-size: 16px;
+  margin: 8px 0 0;
+}
+
+address {
+  font-style: normal;
+}
+
+.mypage-identification .address-info address p {
+  margin: 0;
+}
+
+.l-single-inner p {
+  margin: 8px 0 0;
+  line-height: 1.5;
+}
+
+a {
+  color: #0099e8;
+  text-decoration: none;
+  touch-action: manipulation;
+}
+
+input {
+  border: 0;
+  outline: 0;
+  font-family: inherit;
+  -webkit-appearance: none;
+  touch-action: manipulation;
+  color: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  background-color: transparent;
+  -webkit-border-radius: 0;
+}
+
+.birthday-select-wrap {
+  display: inline-block;
+}
+
+.birthday-select-wrap .select-wrap {
+  width: 133px;
+  display: inline-block;
+}
+
+.form-group .select-wrap {
+  margin: 8px 0 0;
+}
+
+.select-wrap {
+  position: relative;
+  background: #fff;
+}
+
+.form-group select {
+  width: 100%;
+}
+
+.select-default {
+  position: relative;
+  z-index: 2;
+  height: 55px;
+  padding: 0px 8px 0px 20px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+  -webkit-appearance: none;
+  border: 1px solid #999;
+}
+
+.select-default:focus {
+  border: 1px solid #75A9FF;
+  outline: 0;
+}
+
+select {
+  outline: 0;
+  -webkit-appearance: none;
+  touch-action: manipulation;
+  min-height: 1.5em;
+  color: inherit;
+  font-family: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+}
+
+.select-wrap .icon-arrow-bottom {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  z-index: 2;
+  color: #888;
+  font-size: 8px;
+  transform: translate(0, -50%);
+}
+
+.birthday-select-wrap .select-wrap+span {
+  margin: 0 8px;
+}
+
+option {
+  font-weight: normal;
+  display: block;
+  white-space: pre;
+  min-height: 1.2em;
+}
+
+.form-info-text {
+  color: #888;
+}
+
+.mypage-identification button[type="submit"] {
+  margin: 40px 0 0 0;
+}
+
+.btn-red {
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+}
+
+.btn-default {
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+}
+
+button, [type="submit"] {
+  min-height: 1.5em;
+}
+
+button {
+  outline: 0;
+  touch-action: manipulation;
+  font-family: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  -webkit-appearance: button;
+  overflow: visible;
+}
+
+.a_bottom {
+  float: right;
+}
+
+.fa-angle-right {
+  float: right;
+  color: #4689FF;
+  font-size: 21px;
+}
+
+.fa-angle-down {
+  font-size: 28px;
+  position: absolute;
+  color: #999;
+  bottom: 10px;
+  right: 0;
+}
+
+span {
+  padding-left: 28px;
+}
+
