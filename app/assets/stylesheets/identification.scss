@@ -1,7 +1,5 @@
 * {
   background-repeat: no-repeat;
-  margin: 0;
-  padding: 0;
   border-style: solid;
   border-width: 0;
   font-size: inherit;
@@ -21,94 +19,22 @@ body {
 .l-chapter-container:first-child {
   margin: 0;
 }
-
 .l-chapter-container {
-  margin: 40px 0 0;
   background: #fff;
-}
-
-.l-chapter-head {
-  font-size: 24px;
-  padding: 8px 24px;
-  border-bottom: 1px solid #f5f5f5;
-  text-align: center
-}
-
-h2 {
-  font-size: 22px;
-  line-height: 1.4;
-}
-
-.text-center {
+  .l-chapter-head {
+    font-size: 24px;
+    font-weight: 600;
+    padding: 8px 24px;
+    border-bottom: 1px solid #f5f5f5;
+    text-align: center
+  }
+  .text-center {
   text-align: center;
-}
-
-.l-single-inner {
-  padding: 64px;
-  border-top: 1px solid #f5f5f5;
-}
-
-.form-group:first-child {
-  margin: 0;
-}
-
-.form-group {
-  margin: 40px 0 0;
-}
-
-.form-group label {
-  font-weight: 600;
-}
-
-label {
-  display: inline-block;
-  touch-action: manipulation;
-}
-
-.form-require {
-  background: #ea352d;
-  margin: 0 0 0 8px;
-  padding: 2px 4px;
-  border-radius: 2px;
-  color: #fff;
-  font-size: 12px;
-  vertical-align: top;
-}
-
-.mypage-identification .address-info {
-  margin: 0 0 0 4px;
-}
-
-.mypage-identification .address-info address {
-  font-size: 16px;
-  margin: 8px 0 0;
-}
-
-.form-require {
-  background: #ea352d;
-  margin: 0 0 0 8px;
-  padding: 2px 4px;
-  border-radius: 2px;
-  color: #fff;
-  font-size: 14px;
-  vertical-align: top;
-}
-
-.mypage-identification .address-info {
-  margin: 0 0 0 4px;
-}
-
-.mypage-identification .address-info address {
-  font-size: 16px;
-  margin: 8px 0 0;
-}
-
-address {
-  font-style: normal;
-}
-
-.mypage-identification .address-info address p {
-  margin: 0;
+  }
+  .l-single-inner {
+    padding: 64px;
+    border-top: 1px solid #f5f5f5;
+  }
 }
 
 .l-single-inner p {
@@ -116,10 +42,54 @@ address {
   line-height: 1.5;
 }
 
-a {
-  color: #0099e8;
-  text-decoration: none;
-  touch-action: manipulation;
+h2 {
+  line-height: 1.4;
+}
+
+.form-group:first-child {
+  margin: 0;
+}
+
+.form-group label {
+  font-weight: 600;
+}
+
+.form-group {
+  margin: 40px 0 0;
+  label {
+    display: inline-block;
+    touch-action: manipulation;
+  }
+  .form-require {
+    background: #ea352d;
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    vertical-align: top;
+  }
+  .mypage-identification .address-info address {
+    font-size: 16px;
+    margin: 8px 0 0;
+  }
+  .mypage-identification .address-info {
+    margin: 0 0 0 4px;
+    address {
+      font-style: normal;
+    }
+    a {
+      touch-action: manipulation;
+    }
+  }
+}
+
+.mypage-identification .address-info address p {
+  margin: 0;
+}
+
+.span_edit {
+  color: #4689FF;
 }
 
 input {
@@ -135,41 +105,50 @@ input {
   -webkit-border-radius: 0;
 }
 
-.birthday-select-wrap {
+.birthday-select-wrap .select-wrap {
+  width: 150px;
   display: inline-block;
 }
-
-.birthday-select-wrap .select-wrap {
-  width: 133px;
+.birthday-select-wrap {
   display: inline-block;
+  .select-wrap {
+  position: relative;
+  background: #fff;
+    .select-default {
+      position: relative;
+      z-index: 2;
+      height: 55px;
+      padding: 0px 8px 0px 20px;
+      border-radius: 4px;
+      background: 0;
+      font-size: 16px;
+      line-height: 1.5;
+      cursor: pointer;
+      -webkit-appearance: none;
+      border: 1px solid #999;
+      option {
+        font-weight: normal;
+        display: block;
+        white-space: pre;
+        min-height: 1.2em;
+      }
+    }
+    .fa-angle-down {
+      font-size: 28px;
+      position: absolute;
+      color: #999;
+      bottom: 14px;
+      right: 12px;
+    }
+  }
 }
 
 .form-group .select-wrap {
   margin: 8px 0 0;
 }
 
-.select-wrap {
-  position: relative;
-  background: #fff;
-}
-
 .form-group select {
   width: 100%;
-}
-
-.select-default {
-  position: relative;
-  z-index: 2;
-  height: 55px;
-  padding: 0px 8px 0px 20px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  background: 0;
-  font-size: 16px;
-  line-height: 1.5;
-  cursor: pointer;
-  -webkit-appearance: none;
-  border: 1px solid #999;
 }
 
 .select-default:focus {
@@ -179,7 +158,6 @@ input {
 
 select {
   outline: 0;
-  -webkit-appearance: none;
   touch-action: manipulation;
   min-height: 1.5em;
   color: inherit;
@@ -202,12 +180,6 @@ select {
   margin: 0 8px;
 }
 
-option {
-  font-weight: normal;
-  display: block;
-  white-space: pre;
-  min-height: 1.2em;
-}
 
 .form-info-text {
   color: #888;
@@ -215,6 +187,20 @@ option {
 
 .mypage-identification button[type="submit"] {
   margin: 40px 0 0 0;
+}
+
+button {
+  outline: 0;
+  touch-action: manipulation;
+  font-family: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  -webkit-appearance: button;
+  overflow: visible;
+}
+
+button, [type="submit"] {
+  min-height: 1.5em;
 }
 
 .btn-red {
@@ -233,39 +219,16 @@ option {
   text-align: center;
 }
 
-button, [type="submit"] {
-  min-height: 1.5em;
-}
-
-button {
-  outline: 0;
-  touch-action: manipulation;
-  font-family: inherit;
-  font-style: inherit;
-  font-weight: inherit;
-  -webkit-appearance: button;
-  overflow: visible;
-}
-
-.a_bottom {
-  float: right;
-}
-
 .fa-angle-right {
   float: right;
   color: #4689FF;
   font-size: 21px;
 }
 
-.fa-angle-down {
-  font-size: 28px;
-  position: absolute;
-  color: #999;
-  bottom: 10px;
-  right: 0;
+.a_bottom {
+  float: right;
+  .a_bottom__span {
+    font-size: 15px;
+    color: #4689FF;
+  }
 }
-
-span {
-  padding-left: 28px;
-}
-
