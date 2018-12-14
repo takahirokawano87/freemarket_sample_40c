@@ -1,25 +1,52 @@
-<section>
-  <h2>
-    プロフィール
-  </h2>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-  <%= form_with model: @users do |form| %>
+<section class="mypage-user-icon">
+  <a href="#"></a>
+</section>
+<section class="mypage-tab-container-notification-todo">
 
-    <div class="setting-profile-icon">
-      
-      <img src="//static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png" width="60" height="60">
+  <ul class="nav nav-tabs ">
+    <li class="nav-item ">
+      <a href="#tab1" class="tab nav-link active" data-toggle="tab">お知らせ</a>
+    </li>
+    <li class="nav-item">
+      <a href="#tab2" class="tab nav-link" data-toggle="tab">やることリスト</a>
+    </li>
+  </ul>
 
-      <%= form.text_field :name, placeholder: "例)AYA☆セール中", class: "input-name"%>
-
+  <div class="tab-content">
+    <div id="tab1" class="tab-pane active">
+      <ul>
+        <li>
+          <a hret="#">
+            <img class="hanehane" data-src="//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png" class=" lazyloaded" alt="" src="//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png">
+            <i class="fa fa-angle-right fa-2x"></i>
+          </a>
+        </li>
+        <li>
+          <a hret="#">
+            <img data-src="//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png" class=" lazyloaded" alt="" src="//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png">
+            <i class="fa fa-angle-right fa-2x"></i>
+          </a>
+        </li>
+        <li>
+          <a hret="#">
+            <img data-src="//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png" class=" lazyloaded" alt="" src="//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png">
+            <i class="fa fa-angle-right fa-2x"></i>
+          </a>
+        </li>
+        <li>
+          <a hret="#">
+            <img data-src="//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png" class=" lazyloaded" alt="" src="//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png">
+            <i class="fa fa-angle-right fa-2x"></i>
+          </a>
+        </li>
+      </ul>
     </div>
-
-    <div class="setting-profile-comment">
-
-      <%= form.text_area :profile, placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪", class: "input-textarea" %>
-
-      <%= form.submit value: "変更する", class: "input-submit" %>
-
+    <div id="tab2" class="tab-pane">
     </div>
+  </div>
 
-  <% end %>
 </section>
