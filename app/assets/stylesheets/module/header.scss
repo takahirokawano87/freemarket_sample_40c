@@ -135,7 +135,7 @@
         figure {
           padding: 28px 0 0;
           height: 80px;
-          background: url("/assets/img/mypage/user-bg.jpg");
+          background: url("https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg");
           background-repeat: no-repeat;
           background-size: 320px 80px;
           div {
@@ -171,9 +171,16 @@
           border: 1px solid #eee;
           div {
             border-top: 1px solid #eee;
-            a {
+            .sales-point {
               padding: auto 8px;
+              -webkit-appearance: none;
               line-height: 40px;
+              .ml {
+                margin-left: 10px;
+              }
+              .mr {
+                margin-right: 10px;
+              }
             }
           }
         }
@@ -193,6 +200,16 @@
             color: #333;
           }
         }
+      }
+      .mypage-item-not-found {
+        padding: 160px 0 60px;
+        background: url("https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?36255015");
+        background-repeat: no-repeat;
+        background-position: center 40px;
+        background-size: 78px 85px;
+        text-align: center;
+        font-size: 16px;
+        color: #ccc
       }
     }
   }
