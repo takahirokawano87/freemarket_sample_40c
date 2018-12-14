@@ -135,7 +135,7 @@
         figure {
           padding: 28px 0 0;
           height: 80px;
-          background: url("/assets/img/mypage/user-bg.jpg");
+          background: url("https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg");
           background-repeat: no-repeat;
           background-size: 320px 80px;
           div {
@@ -160,7 +160,7 @@
           text-align: center;
           li {
             display: inline-block;
-            margin: 0 0 0 16px;
+            margin: 0 8px;
             font-size: 14px;
           }
         }
@@ -169,11 +169,18 @@
           margin: 16px auto;
           background: #fafafa;
           border: 1px solid #eee;
-          li {
+          div {
             border-top: 1px solid #eee;
-            a {
-              padding: 0 8px;
+            .sales-point {
+              padding: auto 8px;
+              -webkit-appearance: none;
               line-height: 40px;
+              .ml {
+                margin-left: 10px;
+              }
+              .mr {
+                margin-right: 10px;
+              }
             }
           }
         }
@@ -181,16 +188,28 @@
       .mypage-nav-list {
         margin: 8px 0 0;
         li {
+          width: 100%;
           border-top: 1px solid #eee;
+          display: inline-block;
           .mypage-nav-list-item {
             position: relative;
             display: block;
             min-height: 48px;
-            padding: 16px;
+            padding: 16px 8px;
             background: #fff;
             color: #333;
           }
         }
+      }
+      .mypage-item-not-found {
+        padding: 160px 0 60px;
+        background: url("https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?36255015");
+        background-repeat: no-repeat;
+        background-position: center 40px;
+        background-size: 78px 85px;
+        text-align: center;
+        font-size: 16px;
+        color: #ccc
       }
     }
   }
@@ -198,7 +217,7 @@
 
 .pc-header-nav-count {
   position: absolute;
-  top: -6px;
+  top: -3px;
   left: 6px;
   width: 20px;
   height: 20px;
@@ -243,7 +262,9 @@
   }
 }
 
-
+.text-center {
+    text-align: center!important;
+}
 
 .sp-header-user-icon {
   display: block;
@@ -254,6 +275,51 @@
   transform: scale(1);
   -webkit-transition: all ease-out 0.3s;
   transition: all ease-out 0.3s;
+}
+
+.pc-header-nav-root:hover {
+    color: #0099e8
+}
+
+.pc-header-mypage-review-listing a:hover {
+    text-decoration: underline;
+}
+
+.mypage-item-list li:last-child {
+    border: 0
+}
+
+.mypage-item-list li:first-child {
+    border-bottom: 1px solid #eee
+}
+
+.mypage-item-list li.mypage-item-not-found {
+    border: 0
+}
+
+.mypage-item-list img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%
+}
+
+.mypage-item-list img.is-higher-height {
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%)
+}
+
+.mypage-item-list img.is-higher-width {
+    width: auto;
+    left: 50%;
+    right: auto;
+    height: 100%;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0)
 }
 
 .pc-header-mypage-box {
@@ -317,10 +383,67 @@
   color: #ccc
 }
 
-.mypage-nav-list a:hover {
+.pc-header-mypage-state ul li:hover > a {
+  color: #999 !important;
+  text-decoration: underline !important;
+}
+
+.pc-header-mypage-state div div:hover > a {
+  color: #999 !important;
+}
+
+.mypage-nav-list > li:hover a {
+  background: #fafafa !important;
+  text-decoration: none;
+  opacity: 1
+}
+
+.mypage-nav-list > li:hover {
   background: #fafafa;
   text-decoration: none;
   opacity: 1
+}
+
+.mypage-item-list li:hover {
+  background: #fafafa;
+  opacity: 1;
+  text-decoration: none
+}
+
+.mypage-item-list a:hover {
+  background: #fafafa;
+  opacity: 1;
+  text-decoration: none
+}
+
+.mypage-nav-list a:hover .icon-arrow-right {
+    -webkit-transform: translate(4px, -50%);
+    transform: translate(4px, -50%);
+    color: #333
+}
+
+.mypage-nav-list-item.active {
+    background: #eee;
+    font-weight: 600
+}
+
+.mypage-nav-list-item.active .icon-arrow-right {
+    color: #333
+}
+
+.mypage-nav-list-item.active:hover {
+    background: #eee
+}
+
+.mypage-nav-list-item .icon-arrow-right {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    color: #ccc;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    -webkit-transition: all ease-out 0.2s;
+    transition: all ease-out 0.2s
 }
 
 .left {
@@ -358,7 +481,6 @@ ul {
 
 .header-nav ul {
   display: none;
-
   a {
     display: block;
     padding-left: 8px;
