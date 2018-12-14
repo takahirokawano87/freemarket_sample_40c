@@ -19,7 +19,7 @@
           border: 1px solid #ccc;
           border-radius: 5px;
         }
-        .icon-search {
+        .search {
           position: absolute;
           top: 0;
           right: 0;
@@ -36,7 +36,7 @@
       margin-top: 5px;
       background-color: #fff;
       .header-nav {
-        font-size: 12px;
+        font-size: 14px;
         .header-nav-root {
           position: relative;
           height: 38px;
@@ -78,7 +78,7 @@
         }
       }
       .header-login-nav {
-        font-size: 12px;
+        font-size: 14px;
         height: 38px;
         line-height: 32px;
         .header-btn {
@@ -89,6 +89,238 @@
       }
     }
   }
+}
+
+.pc-header-user-nav {
+  font-size: 13px;
+  li {
+    position: relative;
+    display: inline-block;
+    padding: 0 0 0 16px;
+    vertical-align: middle;
+    .pc-header-nav-root {
+      position: relative;
+      height: 38px;
+      line-height: 32px;
+      figure {
+        display: inline-block;
+        position: relative;
+        width: 32px;
+        height: 32px;
+        margin: 0 auto;
+        vertical-align: middle;
+        div {
+          overflow: hidden;
+          border-radius: 50%;
+        }
+      }
+      span {
+        display: inline-block;
+        margin: 0 0 0 8px;
+        font-size: 13px;
+        vertical-align: middle;
+      }
+    }
+    .pc-header-user-box {
+      position: absolute;
+      top: 38px;
+      z-index: 1;
+      display: none;
+      width: 320px;
+      background: #fff;
+      -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+      font-size: 14px;
+      .pc-header-mypage-state.text-center {
+        figure {
+          padding: 28px 0 0;
+          height: 80px;
+          background: url("/assets/img/mypage/user-bg.jpg");
+          background-repeat: no-repeat;
+          background-size: 320px 80px;
+          div {
+            overflow: hidden;
+            width: 60px;
+            height: 60px;
+            margin: 0 auto;
+            border-radius: 50%;
+            -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);
+          }
+          figcaption {
+            margin: 8px 0 0;
+            padding: 0 8px;
+            font-size: 16px;
+          }
+        }
+        .pc-header-mypage-review-listing {
+          margin: 40px 0 0;
+          padding: 8px 8px 0;
+          font-size: 0;
+          text-align: center;
+          li {
+            display: inline-block;
+            margin: 0 0 0 16px;
+            font-size: 14px;
+          }
+        }
+        .pc-header-mypage-sales-point {
+          width: 300px;
+          margin: 16px auto;
+          background: #fafafa;
+          border: 1px solid #eee;
+          li {
+            border-top: 1px solid #eee;
+            a {
+              padding: 0 8px;
+              line-height: 40px;
+            }
+          }
+        }
+      }
+      .mypage-nav-list {
+        margin: 8px 0 0;
+        li {
+          border-top: 1px solid #eee;
+          .mypage-nav-list-item {
+            position: relative;
+            display: block;
+            min-height: 48px;
+            padding: 16px;
+            background: #fff;
+            color: #333;
+          }
+        }
+      }
+    }
+  }
+}
+
+.pc-header-nav-count {
+  position: absolute;
+  top: -6px;
+  left: 6px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ea352d;
+  text-align: center;
+  line-height: 20px;
+  font-size: 12px;
+  color: #fff;
+}
+
+
+.mypage-item-list {
+  li {
+    position: relative;
+    border-bottom: 1px solid #eee;
+    .mypage-item-link {
+      display: block;
+      min-height: 80px;
+      padding: 16px;
+      color: #333;
+      figure {
+        position: relative;
+        overflow: hidden;
+        float: left;
+        width: 48px;
+        height: 48px;
+      }
+      .mypage-item-body {
+        margin: 0 40px 0 68px;
+        .mypage-item-text {
+          display: block;
+          display: -webkit-box;
+          max-height: 4.4em;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          text-overflow: ellipsis;
+          line-height: 1.5
+        }
+      }
+    }
+  }
+}
+
+
+
+.sp-header-user-icon {
+  display: block;
+  color: #333;
+  font-size: 0;
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: all ease-out 0.3s;
+  transition: all ease-out 0.3s;
+}
+
+.pc-header-mypage-box {
+  left: 0
+}
+
+.pc-header-notification-box {
+  border: solid 1px #ddd;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.pc-header-todo-box {
+  right: 0;
+  border: solid 1px #ddd;
+  text-align: center;
+}
+
+.pc-header-nav-root:hover {
+    color: #0099e8;
+}
+
+.icon-bell {
+  font-size: 17px;
+}
+
+.icon-time {
+  font-size: 16px;
+  vertical-align: middle
+}
+
+.pc-header-user-nav > li:hover .pc-header-user-box {
+    display: block;
+}
+
+.pc-header-user-nav > li > a:hover {
+    text-decoration: none;
+    opacity: 1
+}
+
+.mypage-item-link .icon-arrow-right {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%)
+}
+
+.pc-header-mypage-sales-point {
+  width: 300px;
+  margin: 16px auto;
+  background: #fafafa;
+  border: 1px solid #eee;
+}
+
+.pc-header-mypage-sales-point .icon-arrow-right {
+  position: relative;
+  top: -2px;
+  font-size: 12px;
+  margin: 0 0 0 8px;
+  color: #ccc
+}
+
+.mypage-nav-list a:hover {
+  background: #fafafa;
+  text-decoration: none;
+  opacity: 1
 }
 
 .left {
@@ -106,6 +338,22 @@ a {
 
 ul {
   list-style: none;
+}
+
+.header-mypage-box {
+  display: none;
+}
+
+.header-user-nav ul {
+  display: none;
+}
+
+.header-user-nav li:hover > div {
+  display: block;
+}
+
+.header-user-nav li:hover > ul {
+  display: block;
 }
 
 .header-nav ul {
