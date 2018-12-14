@@ -4,5 +4,9 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :items
   get 'personal_datas/' => "personal_datas#identification"
-  resource :user, only: :show
+  resource :users, only: :show do
+    member do
+      get 'profile'
+    end
+  end
 end
