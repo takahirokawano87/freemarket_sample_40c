@@ -1,0 +1,43 @@
+.nav-tabs{
+  background-color: #eee;
+  li{
+    width:50%;
+    a{
+      text-align: center;
+      font-size: 16px;
+      line-height: 72px;
+      font-weight: bold;
+      padding: 0;
+    }
+  }
+  .active{
+    background-color: #fff;
+  }
+}
+
+.tab-content{
+  .tab-pane{
+    ul{
+      li{
+        border-bottom: 1px solid #eee;
+        a{
+          position: relative;
+          display: block;
+          height: 80px;
+          padding: 16px;
+          color: #333;
+          img{
+            width:48px;
+            height: 48px;
+          }
+          i{
+            position: absolute;
+            top: 35%;
+            right: 16px;
+            color: #333;
+          }
+        }
+      }
+    }
+  }
+}
