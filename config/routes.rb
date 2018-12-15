@@ -10,6 +10,7 @@ Rails.application.routes.draw do
    member do
       get 'profile'
       get 'mypage'
+   end
     collection do
       get 'logout'
     end
