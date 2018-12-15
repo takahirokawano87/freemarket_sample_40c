@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   get 'personal_datas/method_of_payment' => "personal_datas#method_of_payment"
   get 'personal_datas/credit_card' => "personal_datas#credit_card"
   resources :users do
-   member do
+    member do
       get 'profile'
       get 'mypage'
-   end
+    end
     collection do
       get 'logout'
     end
