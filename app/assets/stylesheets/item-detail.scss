@@ -1,0 +1,42 @@
+.item__box-container{
+  background-color: #fff;
+  width: 700px;
+  padding: 24px 40px 40px;
+  margin: 40px auto 0;
+  .item-name{
+    font-size: 23px;
+    text-align: center;
+    line-height: 1.4;
+    word-wrap: break-word;
+    font-weight: bold;
+  }
+  .item-main-content{
+    margin: 16px 0 0;
+    font-size: 0;
+    .item-image{
+      display: inline-block;
+      .active-image{
+        img{
+          height: 300px;
+          width: 300px;
+        }
+      }
+      .images{
+        width: 300px;
+        height: 100px;
+        ol{
+          li{
+            margin: 0;
+            padding: 0;
+            width: 25%;
+            display: inline-block;
+            img{
+              width: 100%;
+              height: 75px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
