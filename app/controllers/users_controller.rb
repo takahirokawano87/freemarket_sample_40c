@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
 
-  def show
+  def mypage
   end
 
   def profile
   end
-  
+
   def logout
   end
 

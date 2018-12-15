@@ -4,12 +4,14 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :items
   get 'personal_datas/' => "personal_datas#identification"
-  
-  resource :users, only: :show do
+
+  resource :users do
+
     member do
       get 'profile'
+      get 'mypage'
     end
-    
+
     collection do
       get 'logout'
     end
