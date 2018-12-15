@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :items
   get 'personal_datas/' => "personal_datas#identification"
+  get 'personal_datas/method_of_payment' => "personal_datas#method_of_payment"
+  get 'personal_datas/credit_card' => "personal_datas#credit_card"
   resources :users do
     collection do
       get 'logout'
