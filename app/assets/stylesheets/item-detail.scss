@@ -16,9 +16,16 @@
     .item-image{
       display: inline-block;
       .active-image{
-        img{
+        height: 300px;
+        width: 300px;
+        overflow: hidden;
+        p{
           height: 300px;
-          width: 300px;
+          width: 1200px;
+          img{
+            height: 300px;
+            width: 300px;
+          }
         }
       }
       .images{
