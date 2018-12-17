@@ -49,7 +49,7 @@
               <a href="#">DPS(ぷーんです)＠大人ふるぎ養成講座</a>
               <div>
                 <div class="item-user-raiting">
-                  <i class="fas fa-grin"></i><span>618</span>
+                  <i class="fa fa-grin"></i><span>618</span>
                 </div>
                 <div class="item-user-raiting">
                   <i class="icon fa fa-meh" style="yellow"><span>22</span></i>
@@ -217,4 +217,36 @@
 
   </div>
 
-  
+  <div class="item-detail-message">
+    <div class="message-container">
+      <div class="message-content">
+        <%= form_with model: @comments do |form| %>
+
+          <p>
+            相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          </p>
+
+          <%= form.text_area :comment %>
+
+          <%= form.submit value="コメントする" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <ul class="nav-item-link">
+    <li class="nav-item-link-prev">
+      <a href="#">
+        <i class="fa fa-angle-left"></i>
+        シャロンストーンDVD2枚組
+      </a>
+    </li>
+    <li class="nav-item-link-next">
+      <a href="https://item.mercari.com/jp/m94680218067/">
+        シャロンストーンDVD2枚組
+        <i class="fa fa-angle-right"></i>
+      </a>
+    </li>
+  </ul>
+
+  <%= render partial: 'items/shared/footer' %>
