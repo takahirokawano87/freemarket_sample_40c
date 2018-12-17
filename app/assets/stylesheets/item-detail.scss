@@ -1,7 +1,5 @@
 .item__box-container{
-  background-color: #fff;
-  width: 700px;
-  padding: 24px 40px 40px;
+  @include box-container();
   margin: 40px auto 0;
   .item-name{
     font-size: 23px;
@@ -75,11 +73,17 @@
               div{
                 .item-user-raiting{
                   display: inline-block;
+                  font-size: 18px;
                   .icon{
-                    font-size: 18px;
-                    color:red;
+                  }
+                  .fa-meh{
+                    color: yellow;
+                  }
+                  .fa-frown{
+                    color: blue;
                   }
                   span{
+                    color: #333;
                     font-size: 14px;
                   }
                 }
@@ -145,10 +149,8 @@
 }
 
 .item-detail-message{
-  width: 700px;
-  padding: 24px 40px 40px;
+  @include box-container();
   margin: 8px auto ;
-  background-color: #fff;
   .message-container{
     .message-content{
       form{

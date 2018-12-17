@@ -19,6 +19,12 @@
   text-decoration: none;
 }
 
+@mixin box-container(){
+  width: 700px;
+  padding: 24px 40px 40px;
+  background-color: #fff;
+}
+
 @mixin item-detail-button(){
   font-size: 24px;
   color: #fff;
