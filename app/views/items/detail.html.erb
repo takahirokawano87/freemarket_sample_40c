@@ -49,13 +49,13 @@
               <a href="#">DPS(ぷーんです)＠大人ふるぎ養成講座</a>
               <div>
                 <div class="item-user-raiting">
-                  <i class="icon far fa-smile-wink"></i><span>618</span>
+                  <i class="icon fa fa-smile"></i><span>618</span>
                 </div>
                 <div class="item-user-raiting">
-                  <i class="icon fa fa-meh"><span>22</span></i>
+                  <i class="icon fa fa-meh"></i><span>22</span>
                 </div>
                 <div class="item-user-raiting">
-                  <i class="icon fa fa-frown"><span>3</span></i>
+                  <i class="icon fa fa-frown"></i><span>3</span>
                 </div>
               </div>
             </td>
@@ -69,11 +69,11 @@
               <a href="#">レディース</a>
               <a href="#">
                 <div class="sub-category">
-                  <i class="fa fa-angle-right fa-lg"></i>
+                  <i class="fa fa-angle-right"></i>
                   バッグ
                 </div>
                 <div class="sub--sub-category">
-                  <i class="fa fa-angle-right fa-lg"></i>
+                  <i class="fa fa-angle-right"></i>
                   ショルダーバッグ
                 </div>
               </a>
@@ -219,6 +219,32 @@
 
   <div class="item-detail-message">
     <div class="message-container">
+      <div class="message-content">
+        <ul class="message-items">
+          <li>
+            <div class="message-user">
+              <figure>
+                <div class="message-user-unknown">
+                  <img src="//www-mercari-jp.akamaized.net/assets/img/common/common/user-icon.svg?3410070962" alt="">
+                </div>
+              </figure>
+            </div>
+            <div class="message-body">
+              <div class="message-body-text">
+                出品者がコメントを削除しました
+              </div>
+              <div class="message-icons">
+                <time class="message-icon-left">
+                  <i class="far fa-clock"></i>
+                  <span>73日前</span>
+                </time>
+              </div>
+              <i class="icon-balloon">
+              </i>
+            </div>
+          </li>
+        </ul>
+      </div>
       <div class="message-content">
         <%= form_with model: @comments do |form| %>
 
