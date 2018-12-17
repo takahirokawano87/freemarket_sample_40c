@@ -231,6 +231,7 @@
 
 
 .mypage-item-list {
+  margin-top: -4px;
   li {
     position: relative;
     border-bottom: 1px solid #eee;
@@ -377,8 +378,8 @@
 
 .pc-header-mypage-sales-point .icon-arrow-right {
   position: relative;
-  top: -2px;
-  font-size: 12px;
+  top: 10px;
+  font-size: 18px;
   margin: 0 0 0 8px;
   color: #ccc
 }
