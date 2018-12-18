@@ -36,8 +36,8 @@
 |second_category_id|reference|null: false, foreign_key: true|
 |third_category_id|reference|null: false, foreign_key: true|
 |brand_id|reference|null: false, foreign_key: true|
-|seller_id|reference|foreign_key: true|
-|buyer_id|reference|foreign_key: true|
+|seller_id|integer|foreign_key: true|
+|buyer_id|integer|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -52,6 +52,8 @@
 - has_one :delivery
 - has_one :size
 - has_one :dealing
+- belongs_to :saler, class_name: "User"
+- belongs_to :buyer, class_name: "User"
 
 
 ## imagesテーブル
@@ -84,7 +86,7 @@
 |column|Type|options|
 |------|----|-------|
 |name|string|null: false|
-|first_category_id|foreign_key: true|
+|first_category_id|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :first_category
@@ -97,7 +99,7 @@
 |column|Type|options|
 |------|----|-------|
 |name|string|null: false|
-|second_category_id|foreign_key: true|
+|second_category_id|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :second_category
@@ -107,7 +109,7 @@
 
 |column|Type|options|
 |------|----|-------|
-|name|string|
+|name|string|null: false|
 
 ### Association
 - has_many :items
@@ -117,7 +119,7 @@
 
 |column|Type|options|
 |------|----|-------|
-|comment|text|
+|comment|text|null: false|
 |user_id|reference|null: false, foreign_key: true|
 |item_id|reference|null: false, foreign_key: true|
 
