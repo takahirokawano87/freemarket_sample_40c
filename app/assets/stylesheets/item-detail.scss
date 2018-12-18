@@ -167,7 +167,7 @@
   margin: 8px auto ;
   .message-container{
     .message-content{
-      padding: 24px;
+      padding: 24px 0;
       .message-items{
         li{
           .message-user{
@@ -188,7 +188,7 @@
 
                   width: 32px;
                   height: 32px;
-                  margin: 10px 0 0;
+                  margin: 8px 0 0 4px;
                   vertical-align: bottom;
                 }
               }
@@ -197,17 +197,18 @@
           .message-body{
             display: inline-block;
             position: absolute;
-            left: 300px;
-            width: 600px;
+            width: 580px;
             padding: 16px;
             background-color: #eef0f4;
             border-radius: 15px;
             line-height: 1.5;
             .message-body-text{
+              font-size: 14px;
 
             }
             .message-icons{
               margin: 8px 0 0;
+              font-size: 12px;
               .message-icon-left{
                 display: block;
                 color: #aaa;
@@ -313,4 +314,93 @@
       }
     }
   }
+}
+
+  .items-in-user-profile{
+    width: 700px;
+    margin: 0 auto;
+    .items-box-container{
+      overflow: hidden;
+      .items-box-head{
+        margin: 24px 0 8px;
+        font-size: 22px;
+        line-height: 1.4;
+        a{
+          text-decoration: none;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+      .items-box-content{
+        display: inline-block;
+        width: 33%;
+        .items-box{
+          width: 100%;
+          margin: 0 0 20px;
+          .items-link{
+            width: 220px;
+            height: 330px;
+            display: block;
+            color: #333;
+            text-decoration: none;
+            .items-box-photo{
+              margin: 0;
+              width: 220px;
+              height: 220px;
+              overflow-x: hidden;
+              img{
+                width: 220px;
+                height: 100%;
+              }
+            }
+            .items-box-body{
+              background-color: #fff;
+              padding: 16px;
+              height: 110px;
+              .items-box-name{
+                overflow: hidden;
+                font-weight: 400;
+                height: 2.5em;
+                line-height: 1.5;
+                font-size: 14px;
+              }
+              .items-box-num{
+                margin: 8px 0 0;
+                display: block;
+                content: "";
+                clear: both;
+                .items-box-price{
+                  font-size: 20px;
+                  font-weight: 600;
+                  display: inline-block;
+                  margin: 0;
+                  padding: 0;
+                }
+                .items-box-likes{
+                  font-size: 16px;
+                  color: #333;
+                  font-weight: 400;
+                  display: inline-block;
+                  margin-left: 100px;
+                  i{
+                    color: #eee;
+                    font-weight: 400;
+                    line-height: 1;
+                  }
+                  span{
+
+                  }
+                }
+                .items-box-tax{
+                  font-size: 8px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+body{
+  background-color: #f5f5f5;
 }
