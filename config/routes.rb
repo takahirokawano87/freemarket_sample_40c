@@ -5,16 +5,16 @@ Rails.application.routes.draw do
   get 'items/detail' => "items#detail"
   resources :items
   get 'personal_datas/' => "personal_datas#identification"
-
-  resource :users do
-
-    member do
+  get 'personal_datas/method_of_payment' => "personal_datas#method_of_payment"
+  get 'personal_datas/credit_card' => "personal_datas#credit_card"
+  get 'personal_datas/purchase' => "personal_datas#purchase_confirmation"
+  resources :users do
+    collection do
       get 'profile'
       get 'mypage'
-    end
-
-    collection do
       get 'logout'
+      get 'registration'
     end
   end
 end
+
