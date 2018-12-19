@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181218071026) do
+ActiveRecord::Schema.define(version: 20181219031931) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -30,13 +30,14 @@ ActiveRecord::Schema.define(version: 20181218071026) do
     t.text "description"
     t.string "condition", null: false
     t.bigint "first_category_id", null: false
-    t.bigint "second_category_id", null: false
-    t.bigint "third_category_id", null: false
+    t.bigint "second_category_id"
+    t.bigint "third_category_id"
     t.bigint "brand_id", null: false
     t.integer "seller_id"
     t.integer "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "size_id"
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["first_category_id"], name: "index_items_on_first_category_id"
     t.index ["name"], name: "index_items_on_name"
@@ -50,6 +51,12 @@ ActiveRecord::Schema.define(version: 20181218071026) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["first_category_id"], name: "index_second_categories_on_first_category_id"
+  end
+
+  create_table "sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "third_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
