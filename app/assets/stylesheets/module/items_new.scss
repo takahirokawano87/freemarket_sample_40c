@@ -103,6 +103,9 @@
           font-weight: inherit;
           background-color: transparent;
           -webkit-border-radius: 0;
+          width: 100%;
+          height: 100px;
+          opacity: 0;
         }
         .visible-pc {
           position: absolute;
