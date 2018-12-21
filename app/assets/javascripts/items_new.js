@@ -18,8 +18,8 @@ $(function(){
 // 大categoryが選ばれた時のみ小category表示
 // カテゴリ
 $(function(){
-  $('select[name="drop1list"]').change(function(){
-    var drop1listVal = $('select[name="drop1list"] option:selected').attr("value");
+  $('#item_first_category_id').change(function(){
+    var drop1listVal = $('#item_first_category_id option:selected').attr("value");
     if (drop1listVal == ""){
       $('.select-wrap[name="drop2"]').hide();
       $('.select-wrap[name="drop3"]').hide();
@@ -28,8 +28,8 @@ $(function(){
 });
 
 $(function(){
-  $('select[name="drop2list"]').change(function(){
-    var drop2listVal = $('select[name="drop2list"] option:selected').attr("value");
+  $('#item_second_category_id').change(function(){
+    var drop2listVal = $('#item_second_category_id option:selected').attr("value");
     if (drop2listVal == ""){
       $('.select-wrap[name="drop3"]').hide();
     } else $('.select-wrap[name="drop3"]').show();
@@ -37,8 +37,8 @@ $(function(){
 });
 
 $(function(){
-  $('select[name="drop3list"]').change(function(){
-    var drop3listVal = $('select[name="drop3list"] option:selected').attr("value");
+  $('#item_third_category_id').change(function(){
+    var drop3listVal = $('#item_third_category_id option:selected').attr("value");
     if (drop3listVal == ""){
       $('.form-group[name="size"], .form-suggest-container[name="brand"]').hide();
     } else $('.form-group[name="size"], .form-suggest-container[name="brand"]').show();
@@ -104,6 +104,19 @@ $(function() {
       if(d_method_listoption.attr("class") === d_fee_listVal) {
         d_method_listoption.show();
       } else d_method_listoption.hide();
+    };
+  });
+});
+
+$(function() {
+  $('#item_name').change(function() {
+    var d_fee_listVal = $('#item_name" option:selected').attr("value");
+    var count = $('#item_price]').children().length;
+    for (var i=0; i<count; i++) {
+      var d_method_listoption = $('#item_price');
+      if(d_method_listoption.attr("value") === d_fee_listVal) {
+        $('#item_price').show();
+      } else $('#item_price').hide();
     };
   });
 });
