@@ -1,6 +1,4 @@
 class Item < ApplicationRecord
-  belongs_to :user
-  belongs_to :brand
   belongs_to :size
   belongs_to :first_category
   belongs_to :second_category
@@ -9,4 +7,5 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :image
   has_one :delivery
   accepts_nested_attributes_for :delivery
+  belongs_to :seller, class_name: "User"
 end
