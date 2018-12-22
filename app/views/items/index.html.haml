@@ -6,57 +6,34 @@
   %section.all_4
     %section.items-box-container_4.clearfix
       %h3.text-center_4
-        %a.a_top{:href => "???????????????????????????"}
+        %a.a_top
           メンズ 新着アイテム
       .items-box-content_4.clearfix
-        %section.items-box_4
-          %a.white{:href => "https://item.mercari.com/jp/m83088254018/"}
-            %figure.items-box-photo_4
-              %img.is-higher-width.lazyloaded{:alt => "vans×spitfire コラボスニーカー", "data-src" => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m36848600674_1.jpg?1540711321", :src => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m36848600674_1.jpg?1540711321"}/
-            .items-box-body_4
-              %h3.items-box-name_4.font-2_4 vans×spitfire コラボスニーカー
-              .items-box-num_4.clearfix
-                .items-box-price_4.font-5_4 ¥ 9,500
-                .items-box-likes_4.font-2_4
-                  %i.icon-like-border_4
-                  %i.far.fa-heart
-                  %span.item-box_likes-count_4 7
-                %p.item-box-tax_4 (税込)
-        %section.items-box_4
-          %a.white{:href => "https://item.mercari.com/jp/m55776481939/"}
-            %figure.items-box-photo_4
-              %img.is-higher-width.lazyloaded{:alt => "サングラス レイバン", "data-src" => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m55776481939_1.jpg?1544078380", :src => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m55776481939_1.jpg?1544078380"}/
-            .items-box-body_4
-              %h3.items-box-name_4.font-2_4 サングラス レイバン
-              .items-box-num_4.clearfix
-                .items-box-price_4.font-5_4 ¥ 5,800
-                %p.item-box-tax_4 (税込)
-        %section.items-box_4
-          %a.white{:href => "https://item.mercari.com/jp/m15257552040/"}
-            %figure.items-box-photo_4
-              %img.is-higher-width.lazyloaded{:alt => "Abu Garcia ベスト 釣り 川釣り", "data-src" => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m15257552040_1.jpg?1544415959", :src => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m15257552040_1.jpg?1544415959"}/
-            .items-box-body_4
-              %h3.items-box-name_4.font-2_4 Abu Garcia ベスト 釣り 川釣り
-              .items-box-num_4.clearfix
-                .items-box-price_4.font-5_4 ¥ 3,500
-                %p.item-box-tax_4 (税込)
-        %section.items-box_4
-          %a.white{:href => "https://item.mercari.com/jp/m90487871938/"}
-            %figure.items-box-photo_4
-              %img.is-higher-height.lazyloaded{:alt => "コアウッドネックレス", "data-src" => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m90487871938_1.jpg?1544415959", :src => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m90487871938_1.jpg?1544415959"}/
-            .items-box-body_4
-              %h3.items-box-name_4.font-2_4 コアウッドネックレス
-              .items-box-num_4.clearfix
-                .items-box-price_4.font-5_4 ¥ 3,500
-                %p.item-box-tax_4 (税込)
+        - @items.each do |item|
+          %section.items-box_4
+            %a.white{:href => "https://item.mercari.com/jp/m83088254018/"}
+              %figure.items-box-photo_4
+                = image_tag item.image.image1.url
+              .items-box-body_4
+                %h3.items-box-name_4.font-2_4
+                  = item.name
+                .items-box-num_4.clearfix
+                  .items-box-price_4.font-5_4
+                    = item.price
+                  .items-box-likes_4.font-2_4
+                    %i.icon-like-border_4
+                    %i.far.fa-heart
+                    %span.item-box_likes-count_4 7
+                  %p.item-box-tax_4 (税込)
+
       .view-all_4
-        %a.a_bottom{:href => "??????????????????????"} すべての商品を見る
+        %a.a_bottom すべての商品を見る
 
 
   %section.all_4
     %section.items-box-container_4.clearfix
       %h3.text-center_4
-        %a.a_top{:href => "????????????????????"}
+        %a.a_top
           レディース 新着アイテム
       .items-box-content_4.clearfix
         %section.items-box_4
@@ -110,6 +87,6 @@
                   %span
                 %p.item-box-tax_4 (税込)
       .view-all_4
-        %a.a_bottom{:href => "?????????????????????????"} すべての商品を見る
+        %a.a_bottom すべての商品を見る
 
 = render partial: 'items/shared/footer'
