@@ -3,19 +3,19 @@
 = javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
 .item__box-container
   %h1.item-name
-    正規品！COACH【コーチ】★★大きめ ミニシグネチャー ショルダーバッグ
+    =@item.name
   .item-main-content
     .item-image
       .active-image
         %p
-          %img{src: "https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m70068440240_1.jpg?1539045823"}/
+          =@item.image.image1
           %img{src: "https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m70068440240_2.jpg?1539045823"}/
           %img{src: "https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m70068440240_3.jpg?1539045823"}/
           %img{src: "https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m70068440240_4.jpg?1539045823"}/
       .images
         %ol
           %li
-            %img.item-slide.item-image1{src: "https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m70068440240_1.jpg?1539045823"}/
+            %img.item-slide.item-image1{src: @item.image.image1.url}/
           %li
             %img.item-slide.item-image2{src: "https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m70068440240_2.jpg?1539045823"}/
           %li
@@ -86,8 +86,7 @@
     %span.item-price ¥ 3,380
     %span.item-tax (税込)
     %span.item-shipping 送料込み
-  .item-buy-btn.disabled
-    売り切れました
+  =link_to "購入画面に進む", buy_item_url, class: "item-buy-btn"
   .item-description
     %p.item-description-inner
       ■商品ご覧頂き、誠にありがとうございます。
