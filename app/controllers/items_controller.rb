@@ -2,9 +2,6 @@ class ItemsController < ApplicationController
   def index
   end
 
-  def detail
-  end
-
   def new
     @item = Item.new
     @item.build_image
