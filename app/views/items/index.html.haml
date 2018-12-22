@@ -6,7 +6,7 @@
   %section.all_4
     %section.items-box-container_4.clearfix
       %h3.text-center_4
-        %a.a_top{:href => "???????????????????????????"}
+        %a.a_top
           メンズ 新着アイテム
       .items-box-content_4.clearfix
         - @items.each do |item|
@@ -27,13 +27,13 @@
                   %p.item-box-tax_4 (税込)
 
       .view-all_4
-        %a.a_bottom{:href => "??????????????????????"} すべての商品を見る
+        %a.a_bottom すべての商品を見る
 
 
   %section.all_4
     %section.items-box-container_4.clearfix
       %h3.text-center_4
-        %a.a_top{:href => "????????????????????"}
+        %a.a_top
           レディース 新着アイテム
       .items-box-content_4.clearfix
         %section.items-box_4
@@ -87,6 +87,6 @@
                   %span
                 %p.item-box-tax_4 (税込)
       .view-all_4
-        %a.a_bottom{:href => "?????????????????????????"} すべての商品を見る
+        %a.a_bottom すべての商品を見る
 
 = render partial: 'items/shared/footer'
