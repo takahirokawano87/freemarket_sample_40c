@@ -47,9 +47,9 @@ $(document).on('turbolinks:load', function() {
   });
   // 配送料負担
   $(function(){
-    $('select[name="d_fee_list"]').change(function(){
-      var d_fee_listVal = $('select[name="d_fee_list"] option:selected').attr("value");
-      if (d_fee_listVal == ""){
+    $('#item_delivery_attributes_fee').change(function(){
+      var droplistVal = $('#item_delivery_attributes_fee option:selected').attr("value");
+      if (droplistVal == ""){
         $('.form-group[name="d_method"]').hide();
       } else $('.form-group[name="d_method"]').show();
     });
@@ -97,27 +97,14 @@ $(document).on('turbolinks:load', function() {
   });
   // 配送料負担
   $(function() {
-    $('select[name="d_fee_list"]').change(function() {
-      var d_fee_listVal = $('select[name="d_fee_list"] option:selected').attr("value");
-      var count = $('select[name="d_method_list"]').children().length;
+    $('select[name="item[delivery_attributes][fee]"]').change(function() {
+      var d_fee_listVal = $('select[name="item[delivery_attributes][fee]"] option:selected').attr("value");
+      var count = $('select[name="item[delivery_attributes][kind]"]').children().length;
       for (var i=0; i<count; i++) {
-        var d_method_listoption = $('select[name="d_method_list"] option:eq(' + i + ')');
-        if(d_method_listoption.attr("class") === d_fee_listVal) {
+        var d_method_listoption = $('select[name="item[delivery_attributes][kind]"] option:eq(' + i + ')');
+        if(d_method_listoption.attr("value") === d_fee_listVal) {
           d_method_listoption.show();
         } else d_method_listoption.hide();
-      };
-    });
-  });
-
-  $(function() {
-    $('#item_name').change(function() {
-      var d_fee_listVal = $('#item_name" option:selected').attr("value");
-      var count = $('#item_price').children().length;
-      for (var i=0; i<count; i++) {
-        var d_method_listoption = $('#item_price');
-        if(d_method_listoption.attr("value") === d_fee_listVal) {
-          $('#item_price').show();
-        } else $('#item_price').hide();
       };
     });
   });
