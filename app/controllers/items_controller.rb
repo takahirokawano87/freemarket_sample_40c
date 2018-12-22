@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   def index
+    @items = Item.where(params[:id]).order('created_at DESC').limit(4)
   end
 
   def detail
