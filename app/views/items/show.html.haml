@@ -166,13 +166,15 @@
         = form.submit value="コメントする"
 %ul.nav-item-link
   %li.nav-item-link-prev
-    %a{href: "#"}
-      %i.fa.fa-angle-left
-      シャロンストーンDVD2枚組
+    - if @previous
+      =link_to item_url(@previous) do
+        %i.fa.fa-angle-left
+        =@previous.name
   %li.nav-item-link-next
-    %a{href: "https://item.mercari.com/jp/m94680218067/"}
-      シャロンストーンDVD2枚組
-      %i.fa.fa-angle-right
+    - if @next
+      =link_to item_url(@next) do
+        %i.fa.fa-angle-right
+        =@next.name
 .item-social-media-box
   %ul
     %li
