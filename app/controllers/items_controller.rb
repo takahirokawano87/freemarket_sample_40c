@@ -20,6 +20,7 @@ class ItemsController < ApplicationController
     @seller_id = Item.where(seller_id: @item.seller_id).where.not(id: @item.id)
     @previous = @seller_id.where('id < ?', @item.id).first
     @next = @seller_id.where('id > ?', @item.id).first
+    @delivery = Delivery.find_by(item_id: params[:id])
   end
 
   def buy
