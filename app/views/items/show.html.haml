@@ -90,7 +90,7 @@
   %input{name: "seller_id", type: "hidden", value: @item.seller_id, class: "seller-id"}
   .item-description
     %p.item-description-inner
-      
+
   .item-button-list
     %button{type: "button"}
       %i.far.fa-heart
@@ -152,100 +152,21 @@
     %h2.items-box-head
       %a{href: "#"}
         〇〇さんのその他の出品
-    .items-box-content
-      %section.items-box
-        %a.items-link{href: "#"}
-          %figure.items-box-photo
-            %img{alt: "ロンT kastane", "data-src" => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m84867600835_1.jpg?1537778111", src: "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m84867600835_1.jpg?1537778111"}/
-          .items-box-body
-            %h3.items-box-name
-              ロンT kastane
-            .items-box-num
-              .items-box-price
-                ¥ 900
-              .items-box-likes
-                %i.far.fa-heart
-                %span 1
-              %p.item-box-tax
-                (税込)
-    .items-box-content
-      %section.items-box
-        %a.items-link{href: "#"}
-          %figure.items-box-photo
-            %img{alt: "ロンT kastane", "data-src": "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m84867600835_1.jpg?1537778111", src: "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m84867600835_1.jpg?1537778111"}/
-          .items-box-body
-            %h3.items-box-name
-              ロンT kastane
-            .items-box-num
-              .items-box-price
-                ¥ 900
-              .items-box-likes
-                %i.far.fa-heart
-                %span 1
-              %p.item-box-tax
-                (税込)
-    .items-box-content
-      %section.items-box
-        %a.items-link{href: "#"}
-          %figure.items-box-photo
-            %img{alt: "ロンT kastane", "data-src" => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m84867600835_1.jpg?1537778111", src: "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m84867600835_1.jpg?1537778111"}/
-          .items-box-body
-            %h3.items-box-name
-              ロンT kastane
-            .items-box-num
-              .items-box-price
-                ¥ 900
-              .items-box-likes
-                %i.far.fa-heart
-                %span 1
-              %p.item-box-tax
-                (税込)
-    .items-box-content
-      %section.items-box
-        %a.items-link{href: "#"}
-          %figure.items-box-photo
-            %img{alt: "ロンT kastane", "data-src" => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m84867600835_1.jpg?1537778111", src: "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m84867600835_1.jpg?1537778111"}/
-          .items-box-body
-            %h3.items-box-name
-              ロンT kastane
-            .items-box-num
-              .items-box-price
-                ¥ 900
-              .items-box-likes
-                %i.far.fa-heart
-                %span 1
-              %p.item-box-tax
-                (税込)
-    .items-box-content
-      %section.items-box
-        %a.items-link{href: "#"}
-          %figure.items-box-photo
-            %img{alt: "ロンT kastane", "data-src" => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m84867600835_1.jpg?1537778111", src: "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m84867600835_1.jpg?1537778111"}/
-          .items-box-body
-            %h3.items-box-name
-              ロンT kastane
-            .items-box-num
-              .items-box-price
-                ¥ 900
-              .items-box-likes
-                %i.far.fa-heart
-                %span 1
-              %p.item-box-tax
-                (税込)
-    .items-box-content
-      %section.items-box
-        %a.items-link{href: "#"}
-          %figure.items-box-photo
-            %img{alt: "ロンT kastane", "data-src" => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m84867600835_1.jpg?1537778111", src: "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m84867600835_1.jpg?1537778111"}/
-          .items-box-body
-            %h3.items-box-name
-              ロンT kastane
-            .items-box-num
-              .items-box-price
-                ¥ 900
-              .items-box-likes
-                %i.far.fa-heart
-                %span 1
-              %p.item-box-tax
-                (税込)
+    -@seller_id.each do |seller|
+      .items-box-content
+        %section.items-box
+          %a.items-link{href: item_url(seller)}
+            %figure.items-box-photo
+              %img{src: seller.image.image1.url}
+            .items-box-body
+              %h3.items-box-name
+                =seller.name
+              .items-box-num
+                .items-box-price
+                  ="¥ " + seller.price.to_s
+                .items-box-likes
+                  %i.far.fa-heart
+                  %span 1
+                %p.item-box-tax
+                  (税込)
 = render partial: 'items/shared/footer'
