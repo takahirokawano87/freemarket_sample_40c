@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @seller_id = Item.where(seller_id: @item.seller_id)
+    @seller_id = Item.where(seller_id: @item.seller_id).where.not(id: @item.id)
     @previous = @seller_id.where('id < ?', @item.id).first
     @next = @seller_id.where('id > ?', @item.id).first
   end
