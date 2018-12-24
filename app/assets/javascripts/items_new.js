@@ -108,4 +108,47 @@ $(document).on('turbolinks:load', function() {
       };
     });
   });
+
+// 以下、画像のプレビュー関連
+  function buildHTML(imgsrc){
+    var html = `
+                <div class="sell-upload-figure">
+                  <img src=${imgsrc} height="150">
+                </div>
+                <div class="sell-upload-button">
+                  <a class="sell-upload-edit">編集</a>
+                  <a class="sell-upload-delete">削除</a>
+                </div>
+              `
+    return html;
+  }
+  //画像ファイルプレビュー表示のイベント追加 fileを選択時に発火するイベントを登録
+  $('#item1').on('change', 'input[type="file"]', function(e) {
+    var file = e.target.files[0],
+        reader = new FileReader(),
+        $preview = $("#item1");
+    // 画像ファイル以外の場合は何もしない
+    if(file.type.indexOf("image") < 0){
+      return false;
+    }
+    // ファイル読み込みが完了した際のイベント登録
+    reader.onload = (function(file) {
+      return function(e) {
+        // .prevewの領域の中にロードした画像を表示するimageタグを追加
+        var imgsrc = e.target.result;
+        var imgHtml = buildHTML(imgsrc);
+        $preview.append(imgHtml);
+        $("#vs1").css('opacity', '0');
+      };
+    })(file);
+    reader.readAsDataURL(file);
+  });
+// 削除ボタン
+  $(document).on("click", ".sell-upload-delete", function(e){
+    $(this).parent().parent().html(`
+                                <input class="sell-upload-drop-file" type="file" name="item[image_attributes][image1]" id="item_image_attributes_image1">
+                                <pre class="visible-pc">ドラッグアンドドロップ<br/>またはクリックしてファイルを<br/>アップロード</pre>
+                                <i class="icon-camera"></i>
+                                `)
+  });
 });
