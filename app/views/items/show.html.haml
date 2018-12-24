@@ -9,19 +9,22 @@
       .active-image
         %p
           %img{src: @item.image.image1.url}
-          %img{src: "https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m70068440240_2.jpg?1539045823"}/
-          %img{src: "https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m70068440240_3.jpg?1539045823"}/
-          %img{src: "https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m70068440240_4.jpg?1539045823"}/
+          %img{src: @item.image.image2.url}
+          %img{src: @item.image.image3.url}
+          %img{src: @item.image.image4.url}
       .images
         %ol
           %li
-            %img.item-slide.item-image1{src: @item.image.image1.url}/
-          %li
-            %img.item-slide.item-image2{src: "https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m70068440240_2.jpg?1539045823"}/
-          %li
-            %img.item-slide.item-image3{src: "https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m70068440240_3.jpg?1539045823"}/
-          %li
-            %img.item-slide.item-image4{src: "https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m70068440240_4.jpg?1539045823"}/
+            %img.item-slide.item-image1{src: @item.image.image1.url}
+          -if @item.image.image2.present?
+            %li
+              %img.item-slide.item-image2{src: @item.image.image2.url}
+          -if @item.image.image3.present?
+            %li
+              %img.item-slide.item-image3{src: @item.image.image3.url}
+          -if @item.image.image4.present?
+            %li
+              %img.item-slide.item-image4{src: @item.image.image4.url}
     .item-tabel
       %table.item-detail-table
         %tbody
@@ -29,7 +32,8 @@
             %th
               出品者
             %td
-              %a{href: "#"} DPS(ぷーんです)＠大人ふるぎ養成講座
+              %a{href: "#"}
+                =@item.seller.nickname if @item.seller_id
               %div
                 .item-user-raiting
                   %i.icon.fa.fa-smile
@@ -44,34 +48,35 @@
             %th
               カテゴリー
             %td
-              %a{href: "#"} レディース
+              %a{href: "#"}
+                =@item.first_category.name
               %a{href: "#"}
                 .sub-category
                   %i.fa.fa-angle-right
-                  バッグ
+                  =@item.second_category.name if @item.second_category
+              %a{href: "#"}
                 .sub--sub-category
                   %i.fa.fa-angle-right
-                  ショルダーバッグ
+                  =@item.third_category.name if @item.third_category
           %tr
             %th
               ブランド
             %td
-              %a{href: "#"} コーチ
           %tr
             %th
               商品の状態
             %td
-              やや傷や汚れあり
+              =@item.condition
           %tr
             %th
               配送料の負担
             %td
-              送料込み(出品者負担)
+              =@delivery.fee
           %tr
             %th
               配送の方法
             %td
-              らくらくメルカリ便
+              =@delivery.kind
           %tr
             %th
               配送元地域
@@ -81,15 +86,16 @@
             %th
               発送日の目安
             %td
-              1~2日で発送
+              =@delivery.delivery_days
   .item-price-box
-    %span.item-price ¥ 3,380
+    %span.item-price
+      ="¥ " + @item.price.to_s
     %span.item-tax (税込)
     %span.item-shipping 送料込み
   =link_to "購入画面に進む", buy_item_url, class: "item-buy-btn"
   %input{name: "seller_id", type: "hidden", value: @item.seller_id, class: "seller-id"}
   .item-description
-    %p.item-description-inner
+    =simple_format(@item.description, class:'item-description-inner')
 
   .item-button-list
     %button{type: "button"}
