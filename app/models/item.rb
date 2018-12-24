@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :size
+  belongs_to :brand, optional: true
   belongs_to :first_category
   belongs_to :second_category
   belongs_to :third_category
