@@ -108,4 +108,138 @@ $(document).on('turbolinks:load', function() {
       };
     });
   });
+
+// 以下、画像のプレビュー関連
+  function buildHTML(imgsrc){
+    var html = `
+                <div class="sell-upload-figure">
+                  <img src=${imgsrc} height="150">
+                  <div class="sell-upload-button">
+                    <a class="sell-upload-edit">編集</a>
+                    <a class="sell-upload-delete">削除</a>
+                  </div>
+                </div>
+              `
+    return html;
+  }
+  //画像ファイルプレビュー表示のイベント追加 fileを選択時に発火するイベントを登録
+  $('#item1').on('change', 'input[type="file"]', function(e) {
+    var file = e.target.files[0],
+        reader = new FileReader(),
+        $preview1 = $("#item1");
+    // 画像ファイル以外の場合は何もしない
+    if(file.type.indexOf("image") < 0){
+      return false;
+    }
+    // ファイル読み込みが完了した際のイベント登録
+    reader.onload = (function(file) {
+      return function(e) {
+        // .prevewの領域の中にロードした画像を表示するimageタグを追加
+        var imgsrc = e.target.result;
+        var imgHtml = buildHTML(imgsrc);
+        $preview1.append(imgHtml);
+        $("#file1").css('height', '0%');
+        $("#vs1").css('opacity', '0');
+      };
+    })(file);
+    reader.readAsDataURL(file);
+  });
+// 削除ボタン
+  $('#item1').on("click", ".sell-upload-delete", function(e){
+    $(this).parent().parent().remove();
+    $("#file1").css('height', '100%');
+    $("#vs1").css('opacity', '100');
+    $("#file1").val('');
+  });
+
+// 左から２番目
+  $('#item2').on('change', 'input[type="file"]', function(e) {
+    var file = e.target.files[0],
+        reader = new FileReader(),
+        $preview2 = $("#item2");
+    // 画像ファイル以外の場合は何もしない
+    if(file.type.indexOf("image") < 0){
+      return false;
+    }
+    // ファイル読み込みが完了した際のイベント登録
+    reader.onload = (function(file) {
+      return function(e) {
+        // .prevewの領域の中にロードした画像を表示するimageタグを追加
+        var imgsrc = e.target.result;
+        var imgHtml = buildHTML(imgsrc);
+        $preview2.append(imgHtml);
+        $("#file2").css('height', '0%');
+        $("#vs2").css('opacity', '0');
+      };
+    })(file);
+    reader.readAsDataURL(file);
+  });
+// 削除ボタン
+  $('#item2').on("click", ".sell-upload-delete", function(e){
+    $(this).parent().parent().remove();
+    $("#file2").css('height', '100%');
+    $("#vs2").css('opacity', '100');
+    $("#file2").val('');
+  });
+
+// 左から３番目
+  $('#item3').on('change', 'input[type="file"]', function(e) {
+    var file = e.target.files[0],
+        reader = new FileReader(),
+        $preview3 = $("#item3");
+    // 画像ファイル以外の場合は何もしない
+    if(file.type.indexOf("image") < 0){
+      return false;
+    }
+    // ファイル読み込みが完了した際のイベント登録
+    reader.onload = (function(file) {
+      return function(e) {
+        // .prevewの領域の中にロードした画像を表示するimageタグを追加
+        var imgsrc = e.target.result;
+        var imgHtml = buildHTML(imgsrc);
+        $preview3.append(imgHtml);
+        $("#file3").css('height', '0%');
+        $("#vs3").css('opacity', '0');
+      };
+    })(file);
+    reader.readAsDataURL(file);
+  });
+// 削除ボタン
+  $('#item3').on("click", ".sell-upload-delete", function(e){
+    $(this).parent().parent().remove();
+    $("#file3").css('height', '100%');
+    $("#vs3").css('opacity', '100');
+    $("#file3").val('');
+  });
+
+// 左から４番目
+  $('#item4').on('change', 'input[type="file"]', function(e) {
+    var file = e.target.files[0],
+        reader = new FileReader(),
+        $preview4 = $("#item4");
+    // 画像ファイル以外の場合は何もしない
+    if(file.type.indexOf("image") < 0){
+      return false;
+    }
+    // ファイル読み込みが完了した際のイベント登録
+    reader.onload = (function(file) {
+      return function(e) {
+        // .prevewの領域の中にロードした画像を表示するimageタグを追加
+        var imgsrc = e.target.result;
+        var imgHtml = buildHTML(imgsrc);
+        $preview4.append(imgHtml);
+        $("#file4").css('height', '0%');
+        $("#vs4").css('opacity', '0');
+      };
+    })(file);
+    reader.readAsDataURL(file);
+  });
+// 削除ボタン
+  $('#item4').on("click", ".sell-upload-delete", function(e){
+    $(this).parent().parent().remove();
+    $("#file4").css('height', '100%');
+    $("#vs4").css('opacity', '100');
+    $("#file4").val('');
+  });
+
 });
