@@ -25,10 +25,10 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @seller_id = Item.where(seller_id: @item.seller_id).where.not(id: @item.id).limit(6)
-    @relactive_items = Item.where(third_category_id: @item.third_category_id).where.not(id: @item.id).limit(6)
-    @previous = @seller_id.where('id < ?', @item.id).first
-    @next = @seller_id.where('id > ?', @item.id).first
+    @user_sell_items = Item.where(seller_id: @item.seller_id).where.not(id: @item.id).limit(6)
+    @same_category_items = Item.where(third_category_id: @item.third_category_id).where.not(id: @item.id).limit(6)
+    @previous_item = @user_sell_items.where('id < ?', @item.id).first
+    @next_item = @user_sell_items.where('id > ?', @item.id).first
     @delivery = Delivery.find_by(item_id: params[:id])
   end
 

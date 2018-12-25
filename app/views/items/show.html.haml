@@ -135,15 +135,15 @@
         = form.submit value="コメントする"
 %ul.nav-item-link
   %li.nav-item-link-prev
-    - if @previous
-      =link_to item_url(@previous) do
+    - if @previous_item
+      =link_to item_url(@previous_item) do
         %i.fa.fa-angle-left
-        =@previous.name
+        =@previous_item.name
   %li.nav-item-link-next
-    - if @next
-      =link_to item_url(@next) do
+    - if @next_item
+      =link_to item_url(@next_item) do
         %i.fa.fa-angle-right
-        =@next.name
+        =@next_item.name
 .item-social-media-box
   %ul
     %li
@@ -159,40 +159,40 @@
   %section.items-box-container
     %h2.items-box-head
       =link_to "#{@item.seller.nickname}さんのその他の商品", "#"
-    -@seller_id.each do |seller|
+    -@user_sell_items.each do |item|
       .items-box-content
         %section.items-box
-          %a.items-link{href: item_url(seller)}
+          %a.items-link{href: item_url(item)}
             %figure.items-box-photo
-              %img{src: seller.image.image1.url}
+              %img{src: item.image.image1.url}
             .items-box-body
               %h3.items-box-name
-                =seller.name
+                =item.name
               .items-box-num
                 .items-box-price
-                  ="¥ " + seller.price.to_s
+                  ="¥ " + item.price.to_s
                 .items-box-likes
                   %i.far.fa-heart
                   %span 1
                 %p.item-box-tax
                   (税込)
--unless @relactive_items.blank?
+-unless @same_category_items.blank?
   .items-in-user-profile
     %section.items-box-container
       %h2.items-box-head
         =link_to "#{@item.third_category.name} (#{@item.first_category.name}) その他の商品", "#"
-      -@relactive_items.each do |relactive|
+      -@same_category_items.each do |item|
         .items-box-content
           %section.items-box
-            %a.items-link{href: item_url(relactive)}
+            %a.items-link{href: item_url(item)}
               %figure.items-box-photo
-                %img{src: relactive.image.image1.url}
+                %img{src: item.image.image1.url}
               .items-box-body
                 %h3.items-box-name
-                  =relactive.name
+                  =item.name
                 .items-box-num
                   .items-box-price
-                    ="¥ " + relactive.price.to_s
+                    ="¥ " + item.price.to_s
                   .items-box-likes
                     %i.far.fa-heart
                     %span 1
