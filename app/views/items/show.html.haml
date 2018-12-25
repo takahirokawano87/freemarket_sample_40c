@@ -176,4 +176,26 @@
                   %span 1
                 %p.item-box-tax
                   (税込)
+-unless @relactive_items.blank?
+  .items-in-user-profile
+    %section.items-box-container
+      %h2.items-box-head
+        =link_to "#{@item.third_category.name} (#{@item.first_category.name}) その他の商品", "#"
+      -@relactive_items.each do |relactive|
+        .items-box-content
+          %section.items-box
+            %a.items-link{href: item_url(relactive)}
+              %figure.items-box-photo
+                %img{src: relactive.image.image1.url}
+              .items-box-body
+                %h3.items-box-name
+                  =relactive.name
+                .items-box-num
+                  .items-box-price
+                    ="¥ " + relactive.price.to_s
+                  .items-box-likes
+                    %i.far.fa-heart
+                    %span 1
+                  %p.item-box-tax
+                    (税込)
 = render partial: 'items/shared/footer'
