@@ -1,5 +1,8 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, only: :new
+
   def index
+    @items = Item.where(params[:id]).order('created_at DESC').limit(4)
   end
 
   def detail
@@ -13,8 +16,11 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.save!
-    redirect_to root_path
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def show

@@ -1,7 +1,7 @@
 .single-container
   .single-header
     %h1.single-header-h1
-      %a.single-header-a{:href => "https://www.mercari.com/jp/"}
+      %a.single-header-a{:href => "/"}
         %img.single-header-img{:alt => "mercari", :height => "49px", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?819506670", :width => "185px"}/
   %main.single-main
     %section.l-single-container.buy-item-container
@@ -108,8 +108,8 @@
                       = i.label '配送の方法', class: 'form-group-label'
                       %span.form-require 必須
                       .select-wrap
-                        = i.select :kind, [["未定", "未定", "2"], ["らくらくメルカリ便", "らくらくメルカリ便", "2"], ["ゆうメール", "ゆうメール", "2"], ["レターパック", "レターパック", "2"], ["普通郵便(定形、定形外)", "普通郵便(定形、定形外)", "2"], ["クロネコヤマト", "クロネコヤマト", "2"], ["ゆうパック", "ゆうパック", "2"], ["クリックポスト", "クリックポスト", "2"], ["ゆうパケット", "ゆうパケット", "2"]], prompt: '---', class: 'select-default'
-                        %i.icon-arrow-bottom
+                        = i.select :kind, [["未定", "未定", "2"], ["らくらくメルカリ便", "らくらくメルカリ便", "2"], ["ゆうメール", "ゆうメール", "2"], ["レターパック", "レターパック", "2"], ["普通郵便(定形、定形外)", "普通郵便(定形、定形外)", "2"], ["クロネコヤマト", "クロネコヤマト", "2"], ["ゆうパック", "ゆうパック", "2"], ["クリックポスト", "クリックポスト", "2"], ["ゆうパケット", "ゆうパケット", "2"], ["未定", "未定", "1"], ["クロネコヤマト", "クロネコヤマト", "1"], ["ゆうパック", "ゆうパック", "1"], ["ゆうメール", "ゆうメール", "1"]], prompt: '---', class: 'select-default'
+                        %i.fas.fa-angle-down
                     .form-group
                       = i.label '発送元の地域', class: 'form-group-label'
                       %span.form-require 必須

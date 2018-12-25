@@ -1,4 +1,10 @@
 = render partial: 'items/shared/header'
+%nav{"aria-label" => "パンくずリスト"}
+  %ol.breadcrumb
+    %li.breadcrumb-item
+      %a{:href => "#"} メルカリ
+    %li.breadcrumb-item.active{"aria-current" => "page"} 正規品！COACH【コーチ】★★大きめ ミニシグネチャー ショルダーバッグ
+
 = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
 = javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
 .item__box-container
