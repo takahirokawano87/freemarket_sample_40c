@@ -149,15 +149,8 @@ $(document).on('turbolinks:load', function() {
     $(this).parent().parent().remove();
     $("#file1").css('height', '100%');
     $("#vs1").css('opacity', '100');
+    $("#file1").val('');
   });
-
-  // $('#item1').on("click", ".sell-upload-delete", function(e){
-  //   $(this).parent().parent().parent().html(`
-  //                               <input class="sell-upload-drop-file" id="file1" type="file" name="item[image_attributes][image1]" id="item_image_attributes_image1">
-  //                               <pre class="visible-pc" id="vs1">ドラッグアンドドロップ<br/>またはクリックしてファイルを<br/>アップロード</pre>
-  //                               <i class="icon-camera"></i>
-  //                               `)
-  // });
 
 // 左から２番目
   $('#item2').on('change', 'input[type="file"]', function(e) {
@@ -186,6 +179,7 @@ $(document).on('turbolinks:load', function() {
     $(this).parent().parent().remove();
     $("#file2").css('height', '100%');
     $("#vs2").css('opacity', '100');
+    $("#file2").val('');
   });
 
 // 左から３番目
@@ -215,6 +209,7 @@ $(document).on('turbolinks:load', function() {
     $(this).parent().parent().remove();
     $("#file3").css('height', '100%');
     $("#vs3").css('opacity', '100');
+    $("#file3").val('');
   });
 
 // 左から４番目
@@ -244,6 +239,7 @@ $(document).on('turbolinks:load', function() {
     $(this).parent().parent().remove();
     $("#file4").css('height', '100%');
     $("#vs4").css('opacity', '100');
+    $("#file4").val('');
   });
 
 });
