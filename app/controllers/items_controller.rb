@@ -18,6 +18,7 @@ class ItemsController < ApplicationController
 
   def show
     @seller_id = Item.where(seller_id: @item.seller_id).where.not(id: @item.id)
+    @relative_items = Item.where(third_category_id: @item.id)
     @previous = @seller_id.where('id < ?', @item.id).first
     @next = @seller_id.where('id > ?', @item.id).first
     @delivery = Delivery.find_by(item_id: params[:id])

@@ -157,8 +157,7 @@
 .items-in-user-profile
   %section.items-box-container
     %h2.items-box-head
-      %a{href: "#"}
-        〇〇さんのその他の出品
+      =link_to "#{@item.seller.nickname}さんのその他の商品", "#"
     -@seller_id.each do |seller|
       .items-box-content
         %section.items-box
