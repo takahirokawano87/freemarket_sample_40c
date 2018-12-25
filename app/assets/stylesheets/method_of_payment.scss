@@ -39,23 +39,36 @@
   margin-right: 400px;
 }
 
-.fa-credit-card-2 {
+.fa-credit-card {
   color: white;
   font-size: 16px;
   padding-right: 10px;
 }
 
-.fa-angle-right-2 {
-  float: right;
-  color: #4689FF;
-  font-size: 21px;
-}
-
-.settings-add-card-2{
+.settings-add-card{
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 40px;
   border-bottom: 2px solid #f5f5f5;
+}
+
+.settings-not-regist-2{
+  float: right;
+  .a_bottom {
+    display: flex;
+    padding-right: 73px;
+    .method_of_payment {
+      color: #4689FF;
+      font-size: 14px;
+      padding-top: 3px;
+      padding-right: 10px;
+    }
+    .fa-angle-right {
+      float: right;
+      color: #4689FF;
+      font-size: 22px;
+    }
+  }
 }
 
 .l-single-content-2 {
@@ -63,20 +76,10 @@
   padding-left: 190px;
 }
 
-.l-chapter-sub-head-2 {
+.l-chapter-sub-head {
   font-size: 16px;
   font-weight: 600;
 }
 
-.a_bottom-2 {
-  display: flex;
-  padding-right: 73px;
-}
 
-.method_of_payment-2 {
-  color: #4689FF;
-  font-size: 14px;
-  padding-top: 3px;
-  padding-right: 10px;
-}
 
