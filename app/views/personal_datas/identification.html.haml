@@ -1,4 +1,11 @@
 = render partial: 'items/shared/header'
+%nav{"aria-label" => "パンくずリスト"}
+  %ol.breadcrumb.mb-1
+    %li.breadcrumb-item
+      %a{:href => "#"} メルカリ
+    %li.breadcrumb-item
+      %a{:href => "#"} マイページ
+    %li.breadcrumb-item.active{"aria-current" => "page"} 本人情報の登録
 
 .mypage
   .mypage__contents
@@ -210,7 +217,7 @@
         .form-group.text-right
           %p
             %i.fas.fa-angle-right
-            %a.a_bottom{:href => "?????????????????????", :target => "_blank"}
+            %a.a_bottom_2{:href => "?????????????????????", :target => "_blank"}
               %span.a_bottom__span 本人情報の登録について
               %i.icon-arrow-right
         %input{:name => "__csrf_value", :type => "hidden", :value => "d27a21991a3eacd29565b4027c21c81edaa5674752eb352076b419ff79b81b8192a6c7b80da87f88c55540039a6269c3681df7d623e1097c53a671e6348bd03a4"}/
