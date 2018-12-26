@@ -11,7 +11,7 @@
       .items-box-content_4.clearfix
         - @items.each do |item|
           %section.items-box_4
-            %a.white{:href => "http://localhost:3000/items/detail"}
+            = link_to item_path(item), class: "white" do
               %figure.items-box-photo_4
                 = image_tag item.image.image1.url
               .items-box-body_4
