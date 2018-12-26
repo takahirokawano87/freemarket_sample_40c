@@ -241,5 +241,4 @@ $(document).on('turbolinks:load', function() {
     $("#vs4").css('opacity', '100');
     $("#file4").val('');
   });
-
 });
