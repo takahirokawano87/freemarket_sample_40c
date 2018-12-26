@@ -122,15 +122,14 @@ $(function() {
 
 // 以下、画像のプレビュー関連
   function buildHTML(imgsrc){
-    var html = `
-                <div class="sell-upload-figure">
+    var html =
+               `<div class="sell-upload-figure">
                   <img src=${imgsrc} height="150">
                   <div class="sell-upload-button">
                     <a class="sell-upload-edit">編集</a>
                     <a class="sell-upload-delete">削除</a>
                   </div>
-                </div>
-              `
+                </div>`
     return html;
   }
   //画像ファイルプレビュー表示のイベント追加 fileを選択時に発火するイベントを登録
