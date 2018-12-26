@@ -1,6 +1,5 @@
 class Item < ApplicationRecord
   belongs_to :size
-  belongs_to :brand, optional: true
   belongs_to :first_category
   belongs_to :second_category
   belongs_to :third_category
@@ -9,11 +8,4 @@ class Item < ApplicationRecord
   has_one :delivery
   accepts_nested_attributes_for :delivery
   belongs_to :seller, class_name: "User"
-
-  validates :name, presence: true
-  validates :price, presence: true
-  validates :description, presence: true
-  validates :condition, presence: true
-  validates :first_category_id, presence: true
-  validates :size_id, presence: true
 end
