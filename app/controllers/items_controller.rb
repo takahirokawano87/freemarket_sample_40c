@@ -7,9 +7,6 @@ class ItemsController < ApplicationController
     @items = Item.where(params[:id]).order('created_at DESC').limit(4)
   end
 
-  def index
-  end
-
   def new
     @item = Item.new
     @item.build_image
