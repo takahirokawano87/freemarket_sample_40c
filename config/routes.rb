@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :items do
     member do
       get 'buy'
+      post 'pay'
     end
   end
   get 'personal_datas/' => "personal_datas#identification"
