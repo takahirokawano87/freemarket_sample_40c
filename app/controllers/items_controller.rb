@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show,:buy]
+  before_action :set_item, only: [:show,:buy,:pay]
   before_action :set_sell_items, :set_delivery, :set_category_items, only: :show
   before_action :authenticate_user!, only: :new
 
@@ -28,6 +28,18 @@ class ItemsController < ApplicationController
   def buy
   end
 
+  def pay
+    Payjp.api_key = ENV['PAYJP_API_KEY']
+      charge = Payjp::Charge.create(
+        amount: @item.price,
+        card: params[:'payjp-token'],
+        currency: 'jpy',
+        )
+
+    @item.buyer_id = current_user.id
+    @item.save
+    redirect_to item_url(@item)
+  end
   private
 
   def item_params
