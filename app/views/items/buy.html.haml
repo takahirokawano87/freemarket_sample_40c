@@ -9,8 +9,8 @@
     %section.buy-content_3.buy-item_3
       .buy-content-inner_3
         %h3.buy-item-image
-          %img.lazyloaded_3{:alt => "", "data-src" => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m96268793860_1.jpg?1544867742", :src => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m96268793860_1.jpg?1544867742"}/
-        %p.buy-item-name_3.bold_3 ミサンガ アンクレット ホワイト
+          %img.lazyloaded_3{:alt => "", "data-src" => @item.image.image1.url, src: @item.image.image1.url}/
+        %p.buy-item-name_3.bold_3=@item.name
         %form.buy-form_3{:action => "https://www.mercari.com/jp/transaction/buy/done/m96268793860/", :method => "POST", :novalidate => "novalidate"}
           %p.buy-price-ja_3.bold_3
             ¥ 300
@@ -44,7 +44,8 @@
             %li.buy-price-row_3.buy-you-pay_3.bold_3
               .buy-price-cell_3 支払い金額
               .buy-price-cell_3_2
-                %span.span_price{"data-buy-pay" => "300"} ¥ 300
+                %span.span_price{"data-buy-pay" => "300"}
+                  = "¥ #{@item.price}"
           %input{:name => "seller_id", :type => "hidden", :value => "385935969"}/
           %input{:name => "payment_fee", :type => "hidden", :value => "0"}/
           %input{:name => "payment_amount", :type => "hidden", :value => "300"}/
