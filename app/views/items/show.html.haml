@@ -82,7 +82,7 @@
             %th
               配送元地域
             %td
-              %a{href: "#"} 兵庫県
+              =@delivery.area
           %tr
             %th
               発送日の目安
@@ -93,23 +93,32 @@
       ="¥ " + @item.price.to_s
     %span.item-tax (税込)
     %span.item-shipping 送料込み
-  =link_to "購入画面に進む", buy_item_url, class: "item-buy-btn sell"
+  - unless @item.seller_id == current_user.id
+    =link_to "購入画面に進む", buy_item_url, class: "item-buy-btn sell"
   -if @item.buyer_id
     %input{name: "buyer_id", type: "hidden", value: @item.buyer_id, class: "buyer-id"}
   .item-description
     =simple_format(@item.description, class:'item-description-inner')
+  - unless @item.seller_id == current_user.id
+    .item-button-list
+      %button{type: "button"}
+        %i.far.fa-heart
+        %span いいね！
+        %span 6
+      %a.flag{href: "#"}
+        %i.far.fa-flag
+        %span 不適切な商品の報告
+      %a.lock{href: "#"}
+        %i.fas.fa-unlock-alt
+        %span あんしん・あんぜんへの取り組み
 
-  .item-button-list
-    %button{type: "button"}
-      %i.far.fa-heart
-      %span いいね！
-      %span 6
-    %a.flag{href: "#"}
-      %i.far.fa-flag
-      %span 不適切な商品の報告
-    %a.lock{href: "#"}
-      %i.fas.fa-unlock-alt
-      %span あんしん・あんぜんへの取り組み
+- if @item.seller_id == current_user.id
+  .listing-item-change-box
+    =link_to "商品の編集", edit_item_url, class: "btn-default btn-red"
+    %p.text-center or
+    %button.btn-default.btn-gray 出品を一旦停止する
+    %button.btn-default.btn-gray この商品を削除する
+
 .item-detail-message
   .message-container
     .message-content
