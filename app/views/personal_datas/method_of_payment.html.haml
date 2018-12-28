@@ -1,4 +1,11 @@
 = render partial: 'items/shared/header'
+%nav{"aria-label" => "パンくずリスト"}
+  %ol.breadcrumb.mb-1
+    %li.breadcrumb-item
+      %a{:href => "#"} メルカリ
+    %li.breadcrumb-item
+      %a{:href => "#"} マイページ
+    %li.breadcrumb-item.active{"aria-current" => "page"} 支払い方法
 
 .mypage-2
   .mypage__contents
