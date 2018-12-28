@@ -177,7 +177,7 @@
 - belongs_to :item
 
 
-## personal_datasテーブル
+## personal_infosテーブル
 
 |column|Type|options|
 |------|----|-------|
@@ -185,14 +185,14 @@
 |first_name|string|null: false|
 |family_kana|string|null: false|
 |first_kana|string|null: false|
-|postal_code|integer|null: false|
+|postal_code|string|null: false|
 |prefectures|string|null: false|
 |municipality|string|null: false|
 |address_num|string|null: false|
 |building_name|string|
-|telephone|integer|
+|telephone|string|
 |birth_day|date|
-|user_id|reference|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -272,4 +272,3 @@
 ### Association
 - belongs_to :user
 - belongs_to :dealing
-
