@@ -7,7 +7,7 @@
     %section.l-single-container
       %h2.l-single-head 会員情報入力
       = form_for(resource, as: resource_name, :html => {:class => "l-single-inner"}, url: registration_path(resource_name)) do |f|
-        .l-single-content
+        .l-single-content.step1
           = devise_error_messages!
           .form-group
             = f.label 'ニックネーム', class: 'text'
@@ -27,7 +27,46 @@
             = f.password_field :password_confirmation, autocomplete: "new-password", class: 'input-default', placeholder: "6文字以上"
           %img.not_robot{:src => "https://www.souichi.club/wp-content/uploads/WordPress-340.jpg"}/
           .form-group
-            = f.submit "次へ進む", class: 'btn-default btn-red'
+            = f.submit "次へ進む", class: 'btn-default btn-red first-form'
+
+        .l-single-content.step2
+          = fields_for(@personal_infos) do |o|
+            .form-group
+              = o.label '名前', class: 'text'
+              %span.form-require 必須
+              = o.text_field :family_name, autofocus: true, autocomplete: "off", class: 'input-default', placeholder: "例）山田"
+              = o.text_field :first_name, autocomplete: "off", class: 'input-default', placeholder: "例）太郎"
+            .form-group
+              = o.label 'お名前カナ', class: 'text'
+              %span.form-require 必須
+              = o.text_field :family_kana, autocomplete: "off", class: 'input-default', placeholder: "例) やまだ"
+              = o.text_field :first_kana, autocomplete: "off", class: 'input-default', placeholder: "例) たろう"
+            .form-group
+              = o.label '郵便番号', class: 'text'
+              %span.form-require 必須
+              = o.text_field :postal_code, autocomplete: "off", class: 'input-default', placeholder: "例) 123-4567"
+            .form-group
+              = o.label '都道府県', class: 'text'
+              %span.form-require 必須
+              = o.text_field :prefectures, autocomplete: "off", class: 'input-default', placeholder: "例) 北海道"
+            .form-group
+              = o.label '市町村区', class: 'text'
+              %span.form-require 必須
+              = o.text_field :municipality, autocomplete: "off", class: 'input-default', placeholder: "例) 横浜市緑区"
+            .form-group
+              = o.label '番地', class: 'text'
+              %span.form-require 必須
+              = o.text_field :address_num, autocomplete: "off", class: 'input-default', placeholder: "例)　番地"
+            .form-group
+              = o.label '建物名', class: 'text'
+              %span.form-require 任意
+              = o.text_field :building_name, autocomplete: "off", class: 'input-default', placeholder: "例) 柳ビル103"
+            .form-group
+              = o.label '電話', class: 'text'
+              %span.form-require 任意
+              = o.telephone_field :telephone, autocomplete: "off", class: 'input-default', placeholder: "例) "
+            .form-group
+              = o.submit  "次へ進む", class: 'btn-default btn-red'
   .single-footer
     %nav
       %ul.clearfix
