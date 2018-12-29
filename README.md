@@ -186,7 +186,7 @@
 |family_kana|string|null: false|
 |first_kana|string|null: false|
 |postal_code|string|null: false|
-|prefectures|string|null: false|
+|prefectures_code|integer|null: false|
 |municipality|string|null: false|
 |address_num|string|null: false|
 |building_name|string|
