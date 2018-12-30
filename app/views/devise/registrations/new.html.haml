@@ -1,8 +1,8 @@
 .single-container
   .single-header
     %h1
-      %a{:href => "/"}
-        %img{:alt => "mercari", :height => "49px", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?819506670", :width => "185px"}/
+      =link_to root_url do
+        %img{alt: "mercari", height: "49px", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?819506670", width: "185px"}
   .single-main
     %section.l-single-container
       %h2.l-single-head 会員情報入力
@@ -25,12 +25,12 @@
             = f.label 'パスワード（確認）', class: 'text'
             %span.form-require 必須
             = f.password_field :password_confirmation, autocomplete: "new-password", class: 'input-default', placeholder: "6文字以上"
-          %img.not_robot{:src => "https://www.souichi.club/wp-content/uploads/WordPress-340.jpg"}/
+          %img.not_robot{src: "https://www.souichi.club/wp-content/uploads/WordPress-340.jpg"}
           .form-group
             = f.submit "次へ進む", class: 'btn-default btn-red first-form'
 
         .l-single-content.step2
-          = fields_for(@personal_infos) do |o|
+          = fields_for(@personal_info) do |o|
             .form-group
               = o.label '名前', class: 'text'
               %span.form-require 必須
@@ -48,7 +48,7 @@
             .form-group
               = o.label '都道府県', class: 'text'
               %span.form-require 必須
-              = o.text_field :prefectures, autocomplete: "off", class: 'input-default', placeholder: "例) 北海道"
+              = o.collection_select :prefectures_code,JpPrefecture::Prefecture.all, :code, :name
             .form-group
               = o.label '市町村区', class: 'text'
               %span.form-require 必須
@@ -71,13 +71,13 @@
     %nav
       %ul.clearfix
         %li
-          %a{:href => "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
+          =link_to "プライバシーポリシー", "https://www.mercari.com/jp/privacy/"
         %li
-          %a{:href => "https://www.mercari.com/jp/tos/"} メルカリ利用規約
+          =link_to "メルカリ利用規約", "https://www.mercari.com/jp/tos/"
         %li
-          %a{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
+          =link_to "特定商取引に関する表記", "https://www.mercari.com/jp/tokutei/"
     %nav
-      %a.single-footer-logo{:href => "https://www.mercari.com/jp/"}
-        %img{:alt => "mercari", :height => "65", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?819506670", :width => "80"}/
+      =link_to "https://www.mercari.com/jp/", class: "single-footer-logo" do
+        %img{alt: "mercari", height: "65", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?819506670", width: "80"}
       %p
         %small © 2018 Mercari
