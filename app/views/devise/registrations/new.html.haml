@@ -63,12 +63,12 @@
             .form-group
               = o.label 'お名前カナ', class: 'text'
               %span.form-require 必須
-              = o.text_field :family_kana, autocomplete: "off", class: 'input-default', placeholder: "例) やまだ"
+              = o.text_field :family_kana, autocomplete: "off", class: 'input-default', placeholder: "例) ヤマダ"
               - if resource.errors.messages[:"personal_info.family_kana"].any?
                 %ul
                   - resource.errors.messages[:"personal_info.family_kana"].each do |family_kana|
                     %li=family_kana
-              = o.text_field :first_kana, autocomplete: "off", class: 'input-default', placeholder: "例) たろう"
+              = o.text_field :first_kana, autocomplete: "off", class: 'input-default', placeholder: "例) タロウ"
               - if resource.errors.messages[:"personal_info.first_kana"].any?
                 %ul
                   - resource.errors.messages[:"personal_info.first_kana"].each do |first_kana|
