@@ -50,28 +50,62 @@
               = o.label '名前', class: 'text'
               %span.form-require 必須
               = o.text_field :family_name, autofocus: true, autocomplete: "off", class: 'input-default', placeholder: "例）山田"
+              - if resource.errors.messages[:"personal_info.family_name"].any?
+                %ul
+                  - resource.errors.messages[:"personal_info.family_name"].each do |family_name|
+                    %li=family_name
               = o.text_field :first_name, autocomplete: "off", class: 'input-default', placeholder: "例）太郎"
+              - if resource.errors.messages[:"personal_info.first_name"].any?
+                %ul
+                  - resource.errors.messages[:"personal_info.first_name"].each do |first_name|
+                    %li=first_name
+
             .form-group
               = o.label 'お名前カナ', class: 'text'
               %span.form-require 必須
               = o.text_field :family_kana, autocomplete: "off", class: 'input-default', placeholder: "例) やまだ"
+              - if resource.errors.messages[:"personal_info.family_kana"].any?
+                %ul
+                  - resource.errors.messages[:"personal_info.family_kana"].each do |family_kana|
+                    %li=family_kana
               = o.text_field :first_kana, autocomplete: "off", class: 'input-default', placeholder: "例) たろう"
+              - if resource.errors.messages[:"personal_info.first_kana"].any?
+                %ul
+                  - resource.errors.messages[:"personal_info.first_kana"].each do |first_kana|
+                    %li=first_kana
             .form-group
-              = o.label '郵便番号', class: 'text'
+              = o.label '郵便番号(ハイフン必須)', class: 'text'
               %span.form-require 必須
               = o.text_field :postal_code, autocomplete: "off", class: 'input-default', placeholder: "例) 123-4567"
+              - if resource.errors.messages[:"personal_info.postal_code"].any?
+                %ul
+                  - resource.errors.messages[:"personal_info.postal_code"].each do |postal_code|
+                    %li=postal_code
             .form-group
               = o.label '都道府県', class: 'text'
               %span.form-require 必須
               = o.collection_select :prefectures_code,JpPrefecture::Prefecture.all, :code, :name
+              - if resource.errors.messages[:"personal_info.prefectures_code"].any?
+                %ul
+                  - resource.errors.messages[:"personal_info.prefectures_code"].each do |prefectures_code|
+                    %li=prefectures_code
             .form-group
               = o.label '市町村区', class: 'text'
               %span.form-require 必須
               = o.text_field :municipality, autocomplete: "off", class: 'input-default', placeholder: "例) 横浜市緑区"
+              - if resource.errors.messages[:"personal_info.municipality"].any?
+                %ul
+                  - resource.errors.messages[:"personal_info.municipality"].each do |municipality|
+                    %li=municipality
+
             .form-group
               = o.label '番地', class: 'text'
               %span.form-require 必須
               = o.text_field :address_num, autocomplete: "off", class: 'input-default', placeholder: "例)　番地"
+              - if resource.errors.messages[:"personal_info.address_num"].any?
+                %ul
+                  - resource.errors.messages[:"personal_info.address_num"].each do |address_num|
+                    %li=address_num
             .form-group
               = o.label '建物名', class: 'text'
               %span.form-require 任意
@@ -82,6 +116,9 @@
               = o.telephone_field :telephone, autocomplete: "off", class: 'input-default', placeholder: "例) "
             .form-group
               = o.submit  "次へ進む", class: 'btn-default btn-red'
+  -if @resource_errors
+    - if @resource_errors.blank?
+      %input{name: "errors", type: "hidden", value: "resource_errors", class: "errors"}
   .single-footer
     %nav
       %ul.clearfix
