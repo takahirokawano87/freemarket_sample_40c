@@ -4,9 +4,9 @@ class Item < ApplicationRecord
   belongs_to :first_category
   belongs_to :second_category
   belongs_to :third_category
-  has_one :image
+  has_one :image, dependent: :destroy
   accepts_nested_attributes_for :image
-  has_one :delivery
+  has_one :delivery, dependent: :destroy
   accepts_nested_attributes_for :delivery
   belongs_to :seller, class_name: "User"
 
