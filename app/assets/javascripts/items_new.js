@@ -97,11 +97,11 @@ $(document).on('turbolinks:load', function() {
   // 配送料負担
   $(function() {
     $('select[name="item[delivery_attributes][fee]"]').change(function() {
-      var d_fee_listVal = $('select[name="item[delivery_attributes][fee]"] option:selected').attr("value");
+      var d_fee_listVal = $('select[name="item[delivery_attributes][fee]"] option:selected').attr("class");
       var count = $('select[name="item[delivery_attributes][kind]"]').children().length;
       for (var i=0; i<count; i++) {
         var d_method_listoption = $('select[name="item[delivery_attributes][kind]"] option:eq(' + i + ')');
-        if(d_method_listoption.attr("value") === d_fee_listVal) {
+        if(d_method_listoption.attr("class") === d_fee_listVal) {
           d_method_listoption.show();
         } else d_method_listoption.hide();
       };

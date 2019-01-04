@@ -102,13 +102,13 @@
                       = i.label '配送料の負担', class: 'form-group-label'
                       %span.form-require 必須
                       .select-wrap
-                        = i.select :fee, [["送料込み(出品者負担)", "2"], ["着払い(購入者負担)", "1"]], prompt: '---', class: 'select-default'
+                        = i.select :fee, [["送料込み(出品者負担)", "送料込み(出品者負担)", {class: "2"}], ["着払い(購入者負担)", "着払い(購入者負担)", {class: "1"}]], prompt: '---', class: 'select-default'
                         %i.fas.fa-angle-down
                     .form-group{name: "d_method", style: "display: none;"}
                       = i.label '配送の方法', class: 'form-group-label'
                       %span.form-require 必須
                       .select-wrap
-                        = i.select :kind, [["未定", "未定", "2"], ["らくらくメルカリ便", "らくらくメルカリ便", "2"], ["ゆうメール", "ゆうメール", "2"], ["レターパック", "レターパック", "2"], ["普通郵便(定形、定形外)", "普通郵便(定形、定形外)", "2"], ["クロネコヤマト", "クロネコヤマト", "2"], ["ゆうパック", "ゆうパック", "2"], ["クリックポスト", "クリックポスト", "2"], ["ゆうパケット", "ゆうパケット", "2"], ["未定", "未定", "1"], ["クロネコヤマト", "クロネコヤマト", "1"], ["ゆうパック", "ゆうパック", "1"], ["ゆうメール", "ゆうメール", "1"]], prompt: '---', class: 'select-default'
+                        = i.select :kind, [["未定", "未定", {class: "2"}], ["らくらくメルカリ便", "らくらくメルカリ便", {class: "2"}], ["ゆうメール", "ゆうメール", {class: "2"}], ["レターパック", "レターパック", {class: "2"}], ["普通郵便(定形、定形外)", "普通郵便(定形、定形外)", {class: "2"}], ["クロネコヤマト", "クロネコヤマト", {class: "2"}], ["ゆうパック", "ゆうパック", {class: "2"}], ["クリックポスト", "クリックポスト", {class: "2"}], ["ゆうパケット", "ゆうパケット", {class: "2"}], ["未定", "未定", {class: "1"}], ["クロネコヤマト", "クロネコヤマト", {class: "1"}], ["ゆうパック", "ゆうパック", {class: "1"}], ["ゆうメール", "ゆうメール", {class: "1"}]], prompt: '---', class: 'select-default'
                         %i.fas.fa-angle-down
                     .form-group
                       = i.label '発送元の地域', class: 'form-group-label'
@@ -122,7 +122,6 @@
                       .select-wrap
                         = i.select :delivery_days, [["1~2日で発送", "1~2日で発送"], ["2~3日で発送", "2~3日で発送"], ["4~7日で発送", "4~7日で発送"]], prompt: '---', class: 'select-default'
                         %i.fas.fa-angle-down
-
 
               .sell-content.clearfix
                 %h3.sell-sub-head 販売価格(300〜9,999,999)
