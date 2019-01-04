@@ -426,3 +426,100 @@
     }
   }
 }
+
+
+// / 削除モーダルの記述
+.item_delete_modal {
+  display:none;
+  #delete_modal {
+    opacity: 1;
+    transform: translate(0, 0);
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 3000;
+    overflow-x: hidden;
+    overflow-y: auto;
+    #delete_modal_banner {
+      font-size: 14px;
+      text-align: center;
+      max-width: none;
+      width: 600px;
+      margin: 20px auto;
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+      #delete_modal_body {
+        padding: 64px;
+        line-height: 1.5;
+        #delete_modal_head {
+          font-size: 16px;
+          font-weight: 600;
+        }
+      }
+      #delete_modal_clearfix {
+        content: '';
+        display: block;
+        clear: both;
+        #delete_modal_cancel {
+          float: left;
+          line-height: 63px;
+          cursor: pointer;
+          border-top: 1px solid #ccc;
+          width: 50%;
+          text-align: center;
+        }
+        #delete_modal_submit {
+          float: right;
+          border-left: 1px solid #ccc;
+          color: #0099e8;
+          line-height: 63px;
+          cursor: pointer;
+          border-top: 1px solid #ccc;
+          width: 50%;
+          text-align: center;
+          min-height: 1.5em;
+          touch-action: manipulation;
+          font-family: inherit;
+          font-style: inherit;
+          font-weight: inherit;
+          overflow: visible;
+        }
+      }
+    }
+  }
+  #modal_open {
+    opacity: 1;
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2999;
+    background: rgba(0,0,0,0.64);
+  }
+}
+
+.modal-open {
+  overflow: hidden;
+  transition: all ease-in 1s;
+  transition: all ease-out 1s;
+}
+
+.flash {
+  padding: 10px 0;
+  color: green;
+  background: #bfefdf;
+  text-align: center;
+  top: 64px;
+  z-index: 10;
+  width: 100%;
+  border-radius: 0 0 2px 2px;
+  font-size: 14px;
+  height: 60px;
+  line-height: 3;
+}
