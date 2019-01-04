@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show,:buy]
+  before_action :set_item, only: [:show, :edit, :update, :buy]
   before_action :set_sell_items, :set_delivery, :set_category_items, only: :show
   before_action :authenticate_user!, only: :new
 
@@ -28,13 +28,20 @@ class ItemsController < ApplicationController
   def edit
   end
 
+  def update
+    if @item.seller_id == current_user.id
+      @item.update(item_params)
+      redirect_to item_path(@item)
+    end
+  end
+
   def buy
   end
 
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :first_category_id, :second_category_id, :third_category_id, :size_id, :brand_id, :condition, :price, image_attributes: [:image1, :image2, :image3, :image4], delivery_attributes: [:fee, :kind, :area, :delivery_days]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :description, :first_category_id, :second_category_id, :third_category_id, :size_id, :brand_id, :condition, :price, image_attributes: [:id, :image1, :image2, :image3, :image4], delivery_attributes: [:id, :fee, :kind, :area, :delivery_days]).merge(seller_id: current_user.id)
   end
 
   def set_item
