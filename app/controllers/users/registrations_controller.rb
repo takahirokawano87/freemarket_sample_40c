@@ -34,6 +34,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
               sign_up(resource_name, resource)
               respond_with resource, location: after_sign_up_path_for(resource)
             else
+              @resource_errors = []
+              @resource_errors << resource.errors.messages[:nickname]
+              @resource_errors << resource.errors.messages[:email]
+              @resource_errors << resource.errors.messages[:password]
+              @resource_errors << resource.errors.messages[:password_confirmation]
+              @resource_errors.delete([])
               render action: :new
             end
           else
