@@ -1,0 +1,26 @@
+= render partial: 'items/shared/header'
+
+.search-container.clearfix
+  .l-content
+    .items-box-container.clearfix
+      %h2.search-result-head 検索結果
+      .items-box-content.clearfix
+        - @items.each do |item|
+          %section.items-box
+            = link_to item_path(item), class: "white" do
+              %figure.items-box-photo
+                = image_tag item.image.image1.url, class: "is-higher-width lazyloaded"
+              .items-box-body
+                %h3.items-box-name
+                  = item.name
+                .items-box-num.clearfix
+                  .items-box-price_icon ¥
+                  .items-box-price
+                    = converting_to_jpy(item.price)
+                  .items-box-likes
+                    %i.far.fa-heart
+                    %span 2
+                  %p.item-box-tax (税込)
+  .l-side
+
+= render partial: 'items/shared/footer'

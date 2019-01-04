@@ -38,6 +38,10 @@ class ItemsController < ApplicationController
   def buy
   end
 
+  def search
+    @items = Item.where('name LIKE(?) or description LIKE(?)', "%#{params[:keyword]}%", "%#{params[:keyword]}%").limit(20)
+  end
+
   private
 
   def item_params
