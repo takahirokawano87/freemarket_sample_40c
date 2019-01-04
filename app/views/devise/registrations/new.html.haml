@@ -27,7 +27,7 @@
           .form-group
             = f.label 'パスワード', class: 'text'
             %span.form-require 必須
-            = f.password_field :password, autocomplete: "new-password", class: 'input-default', placeholder: "6文字以上"
+            = f.password_field :password, autocomplete: "new-password", class: 'input-default', placeholder: "6文字以上", value: resource.password
             - if resource.errors.messages[:password].any?
               %ul
                 - resource.errors.messages[:password].each do |password|
@@ -35,7 +35,7 @@
           .form-group
             = f.label 'パスワード（確認）', class: 'text'
             %span.form-require 必須
-            = f.password_field :password_confirmation, autocomplete: "new-password", class: 'input-default', placeholder: "6文字以上"
+            = f.password_field :password_confirmation, autocomplete: "new-password", class: 'input-default', placeholder: "6文字以上",  value: resource.password_confirmation
             - if resource.errors.messages[:password_confirmation].any?
               %ul
                 - resource.errors.messages[:password_confirmation].each do |confirmation|
