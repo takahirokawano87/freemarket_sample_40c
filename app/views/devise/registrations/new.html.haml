@@ -1,44 +1,135 @@
 .single-container
   .single-header
     %h1
-      %a{:href => "/"}
-        %img{:alt => "mercari", :height => "49px", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?819506670", :width => "185px"}/
+      =link_to root_url do
+        %img{alt: "mercari", height: "49px", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?819506670", width: "185px"}
   .single-main
     %section.l-single-container
       %h2.l-single-head 会員情報入力
-      = form_for(resource, as: resource_name, :html => {:class => "l-single-inner"}, url: registration_path(resource_name)) do |f|
-        .l-single-content
-          = devise_error_messages!
+      = form_for(resource, as: resource_name, html: {class: "l-single-inner"}, url: registration_path(resource_name)) do |f|
+        .l-single-content.step1
           .form-group
             = f.label 'ニックネーム', class: 'text'
             %span.form-require 必須
             = f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: 'input-default', placeholder: "例）メルカリ太郎"
+            - if resource.errors.messages[:nickname].any?
+              %ul
+                - resource.errors.messages[:nickname].each do |nickname|
+                  %li=nickname
           .form-group
             = f.label 'メールアドレス', class: 'text'
             %span.form-require 必須
             = f.email_field :email, autofocus: true, autocomplete: "email", class: 'input-default', placeholder: "PC・携帯どちらでも可"
+            - if resource.errors.messages[:email].any?
+              %ul
+                - resource.errors.messages[:email].each do |email|
+                  %li=email
           .form-group
             = f.label 'パスワード', class: 'text'
             %span.form-require 必須
-            = f.password_field :password, autocomplete: "new-password", class: 'input-default', placeholder: "6文字以上"
+            = f.password_field :password, autocomplete: "new-password", class: 'input-default', placeholder: "6文字以上", value: resource.password
+            - if resource.errors.messages[:password].any?
+              %ul
+                - resource.errors.messages[:password].each do |password|
+                  %li=password
           .form-group
             = f.label 'パスワード（確認）', class: 'text'
             %span.form-require 必須
-            = f.password_field :password_confirmation, autocomplete: "new-password", class: 'input-default', placeholder: "6文字以上"
-          %img.not_robot{:src => "https://www.souichi.club/wp-content/uploads/WordPress-340.jpg"}/
+            = f.password_field :password_confirmation, autocomplete: "new-password", class: 'input-default', placeholder: "6文字以上",  value: resource.password_confirmation
+            - if resource.errors.messages[:password_confirmation].any?
+              %ul
+                - resource.errors.messages[:password_confirmation].each do |confirmation|
+                  %li=confirmation
+          %img.not_robot{src: "https://www.souichi.club/wp-content/uploads/WordPress-340.jpg"}
           .form-group
-            = f.submit "次へ進む", class: 'btn-default btn-red'
+            = f.submit "次へ進む", class: 'btn-default btn-red first-form'
+
+        .l-single-content.step2
+          = f.fields_for resource.build_personal_info do |o|
+            .form-group
+              = o.label '名前', class: 'text'
+              %span.form-require 必須
+              = o.text_field :family_name, autofocus: true, autocomplete: "off", class: 'input-default', placeholder: "例）山田"
+              - if resource.errors.messages[:"personal_info.family_name"].any?
+                %ul
+                  - resource.errors.messages[:"personal_info.family_name"].each do |family_name|
+                    %li=family_name
+              = o.text_field :first_name, autocomplete: "off", class: 'input-default', placeholder: "例）太郎"
+              - if resource.errors.messages[:"personal_info.first_name"].any?
+                %ul
+                  - resource.errors.messages[:"personal_info.first_name"].each do |first_name|
+                    %li=first_name
+
+            .form-group
+              = o.label 'お名前カナ', class: 'text'
+              %span.form-require 必須
+              = o.text_field :family_kana, autocomplete: "off", class: 'input-default', placeholder: "例) ヤマダ"
+              - if resource.errors.messages[:"personal_info.family_kana"].any?
+                %ul
+                  - resource.errors.messages[:"personal_info.family_kana"].each do |family_kana|
+                    %li=family_kana
+              = o.text_field :first_kana, autocomplete: "off", class: 'input-default', placeholder: "例) タロウ"
+              - if resource.errors.messages[:"personal_info.first_kana"].any?
+                %ul
+                  - resource.errors.messages[:"personal_info.first_kana"].each do |first_kana|
+                    %li=first_kana
+            .form-group
+              = o.label '郵便番号(ハイフン必須)', class: 'text'
+              %span.form-require 必須
+              = o.text_field :postal_code, autocomplete: "off", class: 'input-default', placeholder: "例) 123-4567"
+              - if resource.errors.messages[:"personal_info.postal_code"].any?
+                %ul
+                  - resource.errors.messages[:"personal_info.postal_code"].each do |postal_code|
+                    %li=postal_code
+            .form-group
+              = o.label '都道府県', class: 'text'
+              %span.form-require 必須
+              = o.collection_select :prefectures_code,JpPrefecture::Prefecture.all, :code, :name
+              - if resource.errors.messages[:"personal_info.prefectures_code"].any?
+                %ul
+                  - resource.errors.messages[:"personal_info.prefectures_code"].each do |prefectures_code|
+                    %li=prefectures_code
+            .form-group
+              = o.label '市町村区', class: 'text'
+              %span.form-require 必須
+              = o.text_field :municipality, autocomplete: "off", class: 'input-default', placeholder: "例) 横浜市緑区"
+              - if resource.errors.messages[:"personal_info.municipality"].any?
+                %ul
+                  - resource.errors.messages[:"personal_info.municipality"].each do |municipality|
+                    %li=municipality
+
+            .form-group
+              = o.label '番地', class: 'text'
+              %span.form-require 必須
+              = o.text_field :address_num, autocomplete: "off", class: 'input-default', placeholder: "例)　番地"
+              - if resource.errors.messages[:"personal_info.address_num"].any?
+                %ul
+                  - resource.errors.messages[:"personal_info.address_num"].each do |address_num|
+                    %li=address_num
+            .form-group
+              = o.label '建物名', class: 'text'
+              %span.form-require 任意
+              = o.text_field :building_name, autocomplete: "off", class: 'input-default', placeholder: "例) 柳ビル103"
+            .form-group
+              = o.label '電話', class: 'text'
+              %span.form-require 任意
+              = o.telephone_field :telephone, autocomplete: "off", class: 'input-default', placeholder: "例) "
+            .form-group
+              = o.submit  "次へ進む", class: 'btn-default btn-red'
+  -if @resource_errors
+    - if @resource_errors.blank?
+      %input{name: "errors", type: "hidden", value: "resource_errors", class: "errors"}
   .single-footer
     %nav
       %ul.clearfix
         %li
-          %a{:href => "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
+          =link_to "プライバシーポリシー", "https://www.mercari.com/jp/privacy/"
         %li
-          %a{:href => "https://www.mercari.com/jp/tos/"} メルカリ利用規約
+          =link_to "メルカリ利用規約", "https://www.mercari.com/jp/tos/"
         %li
-          %a{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
+          =link_to "特定商取引に関する表記", "https://www.mercari.com/jp/tokutei/"
     %nav
-      %a.single-footer-logo{:href => "https://www.mercari.com/jp/"}
-        %img{:alt => "mercari", :height => "65", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?819506670", :width => "80"}/
+      =link_to "https://www.mercari.com/jp/", class: "single-footer-logo" do
+        %img{alt: "mercari", height: "65", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?819506670", width: "80"}
       %p
         %small © 2018 Mercari
