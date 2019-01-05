@@ -23,6 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def edit
@@ -40,6 +41,14 @@ class ItemsController < ApplicationController
 
   def search
     @items = Item.where('name LIKE(?) or description LIKE(?)', "%#{params[:keyword]}%", "%#{params[:keyword]}%").order('created_at DESC')
+  end
+  
+  def destroy
+    @item = Item.find(params[:id])
+    if @item.destroy
+      flash[:notice] = "商品を削除しました"
+      redirect_to mypage_users_path
+    end
   end
 
   private

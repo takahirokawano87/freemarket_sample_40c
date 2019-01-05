@@ -209,4 +209,21 @@
                     %span 1
                   %p.item-box-tax
                     (税込)
+.item_delete_modal
+  %aside.modal#delete_modal{"data-close" => "modal", "data-modal" => "delete-item"}
+    .modal-inner.modal-banner#delete_modal_banner
+      .modal-body#delete_modal_body
+        .modal-head.bold#delete_modal_head 確認
+        削除すると二度と復活できません。
+        %br>/
+        削除する代わりに停止することもできます。
+        %br/
+        = succeed "\u{672c}\u{5f53}\u{306b}\u{524a}\u{9664}\u{3057}\u{307e}\u{3059}\u{304b}\u{ff1f}" do
+          %br/
+      .clearfix#delete_modal_clearfix
+        .modal-btn.modal-btn-cancel#delete_modal_cancel キャンセル
+        .modal-btn.modal-btn-submit#delete_modal_submit
+          =link_to "削除する", "/items/#{@item.id}", method: :delete
+  .overlay.modal-open.is-animate#modal_open
+
 = render partial: 'items/shared/footer'
