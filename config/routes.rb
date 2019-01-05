@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     member do
       get 'buy'
     end
+    collection do
+      get 'search'
+    end
   end
   get 'personal_datas/' => "personal_datas#identification"
   get 'personal_datas/method_of_payment' => "personal_datas#method_of_payment"

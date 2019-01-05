@@ -1,0 +1,88 @@
+.search-container {
+  margin: 40px auto 0;
+  width: 1020px;
+  .l-content {
+    width: 700px;
+    float: right;
+    .items-box-container {
+      .search-result-head {
+        margin: 0 0 8px;
+        font-size: 22px;
+        line-height: 1.4;
+      }
+      .items-box-content {
+        width: auto;
+        margin: 0 auto;
+        .items-box {
+          width: 160px;
+          margin: 0 15px 15px 0;
+          position: relative;
+          float: left;
+          a {
+            height: 300px;
+            display: block;
+            color: #333;
+            .items-box-photo {
+              width: 160px;
+              height: 160px;
+              .is-higher-width {
+                width: auto;
+                height: 160px;
+                transform: translate(-50%, 0);
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 50%;
+                right: auto;
+              }
+            }
+            .items-box-body {
+              padding: 16px;
+              height: 110px;
+              .items-box-name {
+                overflow: hidden;
+                position: relative;
+                font-weight: 400;
+                height: 3em;
+                line-height: 1.5;
+                word-break: break-word;
+                white-space: normal;
+                font-size: 16px;
+                font-weight: 400;
+                color: #333;
+              }
+              .items-box-num {
+                position: relative;
+                margin: 8px 0 0;
+                .items-box-price_icon {
+                  font-size: 20px;
+                  position: absolute;
+                  left: 0px;
+                  bottom: 15px;
+                }
+                .items-box-price {
+                  font-size: 20px;
+                  padding-left: 15px;
+                }
+                .items-box-likes {
+                  position: absolute;
+                  right: 0px;
+                  bottom: 18px;
+                  font-size: 16px;
+                  font-weight: 400;
+                  color: #333;
+                  .fa-heart {
+                    margin: 0 4px 0 0;
+                    color: #ccc;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.l-side {}
