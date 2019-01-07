@@ -80,3 +80,9 @@ gem 'rails-controller-testing'
 gem 'jp_prefecture'
 
 gem 'rails-i18n'
+
+gem 'omniauth-facebook'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+
+gem 'dotenv-rails'

@@ -1,0 +1,84 @@
+= render partial: 'items/shared/header'
+
+.search-container.clearfix
+  .l-content
+    .items-box-container.clearfix
+      %h2.search-result-head 検索結果
+      .items-box-content.clearfix
+        - @items.each do |item|
+          %section.items-box
+            = link_to item_path(item), class: "white" do
+              %figure.items-box-photo
+                = image_tag item.image.image1.url, class: "is-higher-width lazyloaded"
+              .items-box-body
+                %h3.items-box-name
+                  = item.name
+                .items-box-num.clearfix
+                  .items-box-price_icon ¥
+                  .items-box-price
+                    = converting_to_jpy(item.price)
+                  .items-box-likes
+                    %i.far.fa-heart
+                    %span 2
+                  %p.item-box-tax (税込)
+  .l-side
+    %form.search-extend-container
+      .search-sort
+        .form-group
+          .select-wrap
+            %select.select-default
+              %option 並び替え
+              %option 価格の安い順
+              %option 価格の高い順
+              %option 出品の古い順
+              %option 出品の新しい順
+              %option いいね!の多い順
+            %i.fas.fa-angle-down
+      .search-dropdown-content
+        %h3.visible-large 詳細検索
+        .form-group
+          %label
+            %i.icon-plus
+            %span キーワードを追加する
+          %input.input-default
+        .form-group
+          %label
+            %i.icon-list
+            %span カテゴリーを選択する
+          .select-wrap
+            %select.select-default
+              %option すべて
+            %i.fas.fa-angle-down
+        .form-group.search-extend-brand
+          %label
+            %i.icon-tag
+            %span ブランド名から探す
+          %input.input-default{"data-search" => "brand", :name => "brand_name", :placeholder => "例）シャネル", :type => "text", :value => ""}/
+        .form-group
+          %label
+            %i.icon-size
+            %span サイズを指定する
+          .select-wrap
+            %select.select-default
+              %option すべて
+            %i.fas.fa-angle-down
+        .form-group.search-price
+          %label
+            %i.icon-coin
+            %span 価格
+          .select-wrap
+            %select.select-default
+              %option 選択してください
+            %i.fas.fa-angle-down
+          %input.input-default{"data-search" => "price-min", :name => "price_min", :placeholder => "¥ Min", :type => "number", :value => ""}
+          %span ~
+          %input.input-default{"data-search" => "price-max", :name => "price_max", :placeholder => "¥ Max", :type => "number", :value => ""}
+        .form-group.clearfix
+          %label
+            %i.icon-star
+            %span 商品の状態
+          %div
+        .form-group
+        .form-group
+
+= render partial: 'items/shared/footer'
