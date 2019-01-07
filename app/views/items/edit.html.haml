@@ -149,7 +149,7 @@
               .sell-content.sell-btn-box
                 %button.btn-default.btn-red{:type => "submit"}
                   変更する
-                %a.btn-default.btn-gray キャンセル
+                = link_to 'キャンセル', :back, class: "btn-default btn-gray"
             .overlay
   .single-footer
     %nav
