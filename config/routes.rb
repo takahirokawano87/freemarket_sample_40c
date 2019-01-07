@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    omniauth_callbacks: 'users/omniauth_callbacks'
   }
   root 'items#index'
   resources :items do
     member do
       get 'buy'
+    end
+    collection do
+      get 'search'
     end
   end
   get 'personal_datas/' => "personal_datas#identification"
