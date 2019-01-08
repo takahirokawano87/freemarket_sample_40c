@@ -1,19 +1,20 @@
-.search-container {
+.search-container_5 {
   margin: 40px auto 0;
   width: 1020px;
-  .l-content {
+  height: 1350px;
+  .l-content_5 {
     width: 700px;
     float: right;
-    .items-box-container {
-      .search-result-head {
+    .items-box-container_5 {
+      .search-result-head_5 {
         margin: 0 0 8px;
         font-size: 22px;
         line-height: 1.4;
       }
-      .items-box-content {
+      .items-box-content_5 {
         width: auto;
         margin: 0 auto;
-        .items-box {
+        .items-box_5 {
           width: 160px;
           margin: 0 15px 15px 0;
           position: relative;
@@ -22,10 +23,10 @@
             height: 300px;
             display: block;
             color: #333;
-            .items-box-photo {
+            .items-box-photo_5 {
               width: 160px;
               height: 160px;
-              .is-higher-width {
+              .is-higher-width_5 {
                 width: auto;
                 height: 160px;
                 transform: translate(-50%, 0);
@@ -36,10 +37,10 @@
                 right: auto;
               }
             }
-            .items-box-body {
+            .items-box-body_5 {
               padding: 16px;
               height: 110px;
-              .items-box-name {
+              .items-box-name_5 {
                 overflow: hidden;
                 position: relative;
                 font-weight: 400;
@@ -51,27 +52,27 @@
                 font-weight: 400;
                 color: #333;
               }
-              .items-box-num {
+              .items-box-num_5 {
                 position: relative;
                 margin: 8px 0 0;
-                .items-box-price_icon {
+                .items-box-price_icon_5 {
                   font-size: 20px;
                   position: absolute;
                   left: 0px;
                   bottom: 15px;
                 }
-                .items-box-price {
+                .items-box-price_5 {
                   font-size: 20px;
                   padding-left: 15px;
                 }
-                .items-box-likes {
+                .items-box-likes_5 {
                   position: absolute;
                   right: 0px;
                   bottom: 18px;
                   font-size: 16px;
                   font-weight: 400;
                   color: #333;
-                  .fa-heart {
+                  .fa-heart_5 {
                     margin: 0 4px 0 0;
                     color: #ccc;
                   }
@@ -85,4 +86,207 @@
   }
 }
 
-.l-side {}
+.l-side_5 {
+  float: left;
+  width: 280px;
+  margin: 0 40px 0 0;
+  .search-extend-container_5 {
+    position: relative;
+    .search-sort_5 {
+      opacity: 1;
+      position: static;
+      width: auto;
+      z-index: 100;
+      margin: 0 auto;
+      background: #fff;
+      text-align: left;
+      .form-group {
+        margin: 0;
+        .select-wrap_5 {
+          background: #fff;
+          text-align: left;
+          margin: 0;
+          position: relative;
+          .select-default_5 {
+              position: relative;
+              z-index: 2;
+              height: 48px;
+              padding: 0 16px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: 0;
+              font-size: 16px;
+              line-height: 1.5;
+              cursor: pointer;
+          }
+          .fas.fa-angle-down {
+              font-size: 25px;
+              position: absolute;
+              right: 16px;
+              top: 45%;
+              z-index: 2;
+              color: #888;
+              transform: translate(0, -50%);
+              display: inline-block;
+              speak: none;
+              font-style: normal;
+              font-variant: normal;
+              text-transform: none;
+              line-height: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+.form-group .input-default {
+    width: 100%;
+    margin: 8px 0 0;
+}
+
+.input-default {
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+.input-default_2 {
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+    width: 108px;
+    float: right;
+    margin-top: 8px;
+}
+
+.search-dropdown-content_5.search-extend {
+    position: static;
+    display: block;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    padding: 16px;
+}
+
+
+.search-extend-brand_5 ul {
+    overflow: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    max-height: 280px;
+    background: #fff;
+    -webkit-box-shadow: 0 0 4px 0 rgba(0,0,0,0.64);
+    box-shadow: 0 0 4px 0 rgba(0,0,0,0.64);
+    -webkit-overflow-scrolling: touch;
+}
+
+.search-dropdown-content_5 {
+    padding: 64px;
+}
+
+.search-dropdown-content_5 {
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    z-index: 10001;
+    padding: 16px 5%;
+    background: #fff;
+  .visible-large_5 {
+      display: block;
+      font-size: 16px;
+    .form-group {
+        margin: 24px 0 0;
+      label {
+          font-weight: 600;
+          font-size: 14px;
+      }
+    }
+  }
+}
+
+.search-dropdown-content_5 h3+.form-group {
+    margin: 24px 0 0;
+}
+
+.search-extend-brand_5 {
+    position: relative;
+}
+
+.search-extend-btn_5 {
+    height: 90px;
+    padding: 40px 0 0;
+}
+
+.search-price_5 .input-default {
+    width: 45%;
+}
+
+.search-price_5>span {
+    display: inline-block;
+    width: 10%;
+    font-size: 14px;
+    text-align: center;
+}
+
+.checkbox-default_5 {
+    position: relative;
+    font-size: 0;
+    display: inline-block;
+    width: 48%;
+    vertical-align: middle;
+    word-break: break-word;
+  .icon-check_5 {
+      position: absolute;
+      top: 45%;
+      left: 0;
+      z-index: 1;
+      width: 20px;
+      height: 20px;
+      border-radius: 2px;
+      background: #fff;
+      border: 1px solid #ccc;
+      font-size: 10px;
+      line-height: 17px;
+      text-align: center;
+      color: #fff;
+      vertical-align: middle;
+      transition: all ease-out .3s;
+      transform: translate(0, -50%);
+  }
+}
+
+.checkbox-default_5 input[type='checkbox'] {
+    display: none;
+}
+
+.checkbox-default_5 label {
+    position: relative;
+    z-index: 2;
+    padding: 0 0 0 28px;
+    font-size: 14px;
+    font-weight: 400;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.fas {
+  color: gray;
+}
+
+.keyword-search_box {
+  display: none;
+  .keyword-search {
+    display: none;
+  }
+}
