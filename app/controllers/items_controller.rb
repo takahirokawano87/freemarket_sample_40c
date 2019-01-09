@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show,:buy,:pay]
   before_action :set_sell_items, :set_delivery, :set_category_items, only: :show
-  before_action :authenticate_user!, only: :new
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @items = Item.where(params[:id]).order('created_at DESC').limit(4)
@@ -29,7 +29,8 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    Payjp.api_key = ENV['PAYJP_API_KEY']
+    require "payjp"
+    Payjp.api_key = ENV['PAYJP_APP_KEY']
       charge = Payjp::Charge.create(
         amount: @item.price,
         card: params[:'payjp-token'],
