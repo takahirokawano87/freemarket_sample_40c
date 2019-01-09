@@ -1,7 +1,7 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
   $('.slick').slick({
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 6000,
     dots: true,
     arrows:true,
     prevArrow:'<div class="prev"><img class="glyphicon-chevron-left" src="https://www.mercari.com/jp/assets/img/common/jp/top/carousel-prev.png"></div>',
@@ -11,3 +11,4 @@ $(function(){
     $(this).click();
   });
 });
+
