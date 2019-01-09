@@ -42,7 +42,7 @@ class ItemsController < ApplicationController
   def search
     @items = Item.where('name LIKE(?) or description LIKE(?)', "%#{params[:keyword]}%", "%#{params[:keyword]}%").order('created_at DESC')
   end
-  
+
   def destroy
     @item = Item.find(params[:id])
     if @item.destroy

@@ -16,4 +16,6 @@ class Item < ApplicationRecord
   validates :condition, presence: true
   validates :first_category_id, presence: true
   validates :size_id, presence: true
+  validates :image, presence: true
+  validates :delivery, presence: true
 end
