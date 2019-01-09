@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :buy]
+  before_action :set_item, only: [:show, :edit, :update, :buy, :pay]
   before_action :set_sell_items, :set_delivery, :set_category_items, only: :show
-  before_action :authenticate_user!, only: :new
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @items = Item.order('created_at DESC').limit(4)
@@ -39,6 +39,20 @@ class ItemsController < ApplicationController
   def buy
   end
 
+  def pay
+    require "payjp"
+    Payjp.api_key = ENV['PAYJP_APP_KEY']
+      charge = Payjp::Charge.create(
+        amount: @item.price,
+        card: params[:'payjp-token'],
+        currency: 'jpy',
+        )
+
+    @item.buyer_id = current_user.id
+    @item.save
+    redirect_to item_url(@item)
+  end
+  
   def search
     @items = Item.where('name LIKE(?) or description LIKE(?)', "%#{params[:keyword]}%", "%#{params[:keyword]}%").order('created_at DESC')
   end

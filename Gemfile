@@ -77,6 +77,8 @@ gem "jquery-rails"
 
 gem 'rails-controller-testing'
 
+gem 'payjp'
+
 gem 'jp_prefecture'
 
 gem 'rails-i18n'
