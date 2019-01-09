@@ -1,36 +1,11 @@
-.carousel-indicators {
-  width: 100%;
-  margin-left: 20px;
-  & li {
-    border-radius: 50%;
-    margin: 1px 10px;
-    height: 12px;
-    max-width: 12px;
-    opacity: 4;
-  }
-  .active {
-    border: 1px rgba(0,0,0,0.5);
-    margin: 1px 10px;
-    height: 12px;
-    max-width: 12px;
-    background: rgba(0,0,0,0.5);
-  }
-}
 
-.carousel-control{
-  background: rgba(0,0,0,0) !important;
-  &:hover{
-    background: rgba(0,0,0,0);
+.slick{
+  li{
+    height: 390px;
   }
-  img{
-    height:46px;
-    width:31px;
   }
-}
-
-.carousel-inner{
-  .active{
-    background-image: url(https://www.mercari.com/jp/assets/img/common/jp/top/main_bg_pc.jpg);
+  .slide1{
+    background-image: url("https://www.mercari.com/jp/assets/img/common/jp/top/main_bg_pc.jpg");
     background-size: cover;
     .top-main-visual{
       @include carousel-visual();
@@ -66,25 +41,47 @@
       }
     }
   }
-  .item2{
-    background-image: url(https://www.mercari.com/jp/assets/img/common/jp/top/top-banner-new-register.png);
-    background-size: cover;
-    .top-main-visual{
-      @include carousel-visual();
+  .slide2{
+    background-image: url("https://www.mercari.com/jp/assets/img/common/jp/top/banner-bokurano-heisei.jpg");background-position: center;
+
+
+  }
+  .slide3{
+    background-image: url("https://www.mercari.com/jp/assets/img/common/jp/top/banner-bokurano-heisei-entertainment.png");
+    background-position: center;
+  }
+  .slide4{
+    background-image: url("https://www.mercari.com/jp/assets/img/common/jp/top/top-banner-welcome.png");
+    background-position: center;
+}
+
+.slick-arrow{
+  position: absolute;
+  top: 50%;
+  margin-top: -15px;
+}
+.prev{
+  left: 80px;
+  width: 0;
+  height: 0;
+  z-index: 1;
+}
+.next{
+  right: 80px;
+  width: 0;
+  height: 0;
+}
+.slick-dots{
+  bottom: 20px !important;
+  li {
+    button:before{
+      font-size:14px !important;
+      opacity: 0.1;
     }
   }
-  .item3{
-    background-image: url(https://www.mercari.com/jp/assets/img/common/jp/top/top-banner-kusanagi-xmas.jpg);
-    background-size: cover;
-    .top-main-visual{
-      @include carousel-visual();
-    }
-  }
-  .item4{
-    background-image: url(https://www.mercari.com/jp/assets/img/common/jp/top/top-banner-welcome.png);
-    background-position:-270px 0;
-    .top-main-visual{
-      @include carousel-visual();
+  li.slick-active{
+    button:before{
+      opacity: 1;
     }
   }
 }
