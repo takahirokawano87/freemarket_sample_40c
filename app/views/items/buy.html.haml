@@ -44,7 +44,7 @@
               %span.span_price{"data-buy-pay" => "300"}
                 = "¥ #{@item.price}"
           =form_tag(pay_item_path(@item), method: 'post') do
-            %script.payjp-button{"data-key": "pk_test_c0b097a528ea80b70e965ddb", src: "https://checkout.pay.jp/",'data-text':'クレジットカードで購入する', 'data-submit-text': '送信する'}
+            %script.payjp-button{"data-key": "pk_test_70f174ca4cba948ba5f2aae3", src: "https://checkout.pay.jp/",'data-text':'クレジットカードで購入する', 'data-submit-text': '送信する'}
     %section.buy-content_3.buy-user-info_3
       .buy-content-inner_3
         %h3 配送先
