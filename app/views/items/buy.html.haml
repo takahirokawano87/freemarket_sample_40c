@@ -1,7 +1,7 @@
 %body
   %header.single-header_3
     %h1
-      %a{:href => "https://www.mercari.com/jp/"}
+      =link_to root_url do
         %img{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3410070962"}/
 %main.single-main
   %section.l-single-container_3.buy-item-container
@@ -11,52 +11,45 @@
         %h3.buy-item-image
           %img.lazyloaded_3{:alt => "", "data-src" => @item.image.image1.url, src: @item.image.image1.url}/
         %p.buy-item-name_3.bold_3=@item.name
-        %form.buy-form_3{:action => "https://www.mercari.com/jp/transaction/buy/done/m96268793860/", :method => "POST", :novalidate => "novalidate"}
-          %p.buy-price-ja_3.bold_3
-            ¥ 300
-            %span.item-shipping-fee_3.f14_3.bold_3 送料込み
-          %ul.buy-accordion_3
-            %li.accordion-parent
-              .accordion-toggle_3
-                ポイントを使う
-                %i.icon-arrow-bottom.accordion-icon
-              %ul.accordion-child
-                %li.bold_3 所持ポイント: P 500
-                %li.form-group_3{"data-buy" => "parent"}
-                  .radio-default
-                    %label
-                      %input{"data-buy" => "none", :name => "consume_point_radio", :type => "radio", :value => "none"}>/
-                      ポイントを使わない
-                  .radio-default
-                    %label
-                      %input{"data-buy" => "all", :name => "consume_point_radio", :type => "radio", :value => "all"}/
-                      %input{:type => "hidden", :value => "300"}/
-                      すべてのポイントを使う
-                      %br/
-                      P 300
-                  .radio-default
-                    %label
-                      %input{"data-buy" => "part", :name => "consume_point_radio", :type => "radio", :value => "partial"}/
-                      一部のポイントを使う
-                  %input.input-default{"data-buy" => "part_num", "data-input" => "money", :placeholder => "使うポイントを入力", :type => "number", :value => ""}/
-                  %input{"data-buy" => "result", :name => "consume_point", :type => "hidden", :value => "0"}/
-          %ul.buy-price-table_3
-            %li.buy-price-row_3.buy-you-pay_3.bold_3
-              .buy-price-cell_3 支払い金額
-              .buy-price-cell_3_2
-                %span.span_price{"data-buy-pay" => "300"}
-                  = "¥ #{@item.price}"
-          %p.has-error-text_3 配送先と支払い方法の入力を完了してください。
-          %button.btn-default_3.btn-red_3.bold_3{:disabled => "disabled", :type => "submit"} 購入する
-          %input#user_info_is_not_complete{:type => "hidden"}/
+        %p.buy-price-ja_3.bold_3
+          ¥ #{@item.price}
+          %span.item-shipping-fee_3.f14_3.bold_3 送料込み
+        %ul.buy-accordion_3
+          %li.accordion-parent
+            .accordion-toggle_3
+              ポイントを使う
+              %i.icon-arrow-bottom.accordion-icon
+            %ul.accordion-child
+              %li.bold_3
+              %li.form-group_3{"data-buy" => "parent"}
+                .radio-default
+                  %label
+                    %input{"data-buy" => "none", :name => "consume_point_radio", :type => "radio", :value => "none"}>/
+                    ポイントを使わない
+                .radio-default
+                  %label
+                    %input{"data-buy" => "all", :name => "consume_point_radio", :type => "radio", :value => "all"}/
+                    %input{:type => "hidden", :value => "300"}/
+                    すべてのポイントを使う
+                .radio-default
+                  %label
+                    %input{"data-buy" => "part", :name => "consume_point_radio", :type => "radio", :value => "partial"}/
+                    一部のポイントを使う
+                %input.input-default{"data-buy" => "part_num", "data-input" => "money", :placeholder => "使うポイントを入力", :type => "number", :value => ""}/
+                %input{"data-buy" => "result", :name => "consume_point", :type => "hidden", :value => "0"}/
+        %ul.buy-price-table_3
+          %li.buy-price-row_3.buy-you-pay_3.bold_3
+            .buy-price-cell_3 支払い金額
+            .buy-price-cell_3_2
+              %span.span_price{"data-buy-pay" => "300"}
+                = "¥ #{@item.price}"
+          =form_tag(pay_item_path(@item), method: 'post') do
+            %script.payjp-button{"data-key": "pk_test_c0b097a528ea80b70e965ddb", src: "https://checkout.pay.jp/",'data-text':'クレジットカードで購入する', 'data-submit-text': '送信する'}
     %section.buy-content_3.buy-user-info_3
       .buy-content-inner_3
         %h3 配送先
         %address.buy-user-info-text_3
-          1600 Pennsylvania Avenue NW, Washington, D.C. 20500 U.S.A.
-          %br/
-          %br/
-          Donald John Trump
+          -# =simple_format(@item.buyer.address)
         %p.buy-user-info-text_3
         %a.buy-user-info-fix_3{:href => "https://www.mercari.com/jp/transaction/address/m96268793860/?_s=U2FsdGVkX18NsesncmWM9C1PLnTT0_2gp34vfUnMsRqPTRUi4xPjo3QEiLV2Nj-fqBqFkiDWgBP1Cmg__vY8JLu_bVZj2PGfvssmmzibChbjWIlz9-wmJUqBHZ95nZZp"}
           %span.aaa 変更する
@@ -65,24 +58,22 @@
       .buy-content-inner_3
         %h3 支払い方法
         %p.buy-user-info-text_3
-          %br/
-          \/
         %figure
           %img{:alt => "", :height => "", :src => "", :width => ""}/
         %p
-        %a.buy-user-info-fix_3{:href => "https://www.mercari.com/jp/transaction/card/m96268793860/?_s=U2FsdGVkX18NsesncmWM9C1PLnTT0_2gp34vfUnMsRqPTRUi4xPjo3QEiLV2Nj-fqBqFkiDWgBP1Cmg__vY8JLu_bVZj2PGfvssmmzibChbjWIlz9-wmJUqBHZ95nZZp"}
+        %a.buy-user-info-fix_3{:href => "#"}
           %span.aaa 変更する
           %i.fas.fa-angle-right
 %footer.single-footer_3
   %nav
     %ul.clearfix
       %li
-        %a{:href => "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
+        %a{:href => "#"} プライバシーポリシー
       %li
-        %a{:href => "https://www.mercari.com/jp/tos/"} メルカリ利用規約
+        %a{:href => "#"} メルカリ利用規約
       %li
-        %a{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
-  %a.single-footer-logo_3{:href => "https://www.mercari.com/jp/"}
+        %a{:href => "#"} 特定商取引に関する表記
+  %a.single-footer-logo_3{:href => "#"}
     %img{:alt => "mercari", :height => "65", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3410070962", :width => "80"}/
   %p
     %small © 2018 Mercari
