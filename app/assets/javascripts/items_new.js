@@ -97,11 +97,11 @@ $(document).on('turbolinks:load', function() {
   // 配送料負担
   $(function() {
     $('select[name="item[delivery_attributes][fee]"]').change(function() {
-      var d_fee_listVal = $('select[name="item[delivery_attributes][fee]"] option:selected').attr("value");
+      var d_fee_listVal = $('select[name="item[delivery_attributes][fee]"] option:selected').attr("class");
       var count = $('select[name="item[delivery_attributes][kind]"]').children().length;
       for (var i=0; i<count; i++) {
         var d_method_listoption = $('select[name="item[delivery_attributes][kind]"] option:eq(' + i + ')');
-        if(d_method_listoption.attr("value") === d_fee_listVal) {
+        if(d_method_listoption.attr("class") === d_fee_listVal) {
           d_method_listoption.show();
         } else d_method_listoption.hide();
       };
@@ -133,10 +133,12 @@ $(document).on('turbolinks:load', function() {
     reader.onload = (function(file) {
       return function(e) {
         // .prevewの領域の中にロードした画像を表示するimageタグを追加
+        $('#file1').siblings('.sell-upload-figure').remove();
         var imgsrc = e.target.result;
         var imgHtml = buildHTML(imgsrc);
         $preview1.append(imgHtml);
-        $("#file1").css('height', '0%');
+        $("#file1").css('height', '44px');
+        $("#file1").css('width', '50%');
         $("#vs1").css('opacity', '0');
       };
     })(file);
@@ -146,6 +148,7 @@ $(document).on('turbolinks:load', function() {
   $('#item1').on("click", ".sell-upload-delete", function(e){
     $(this).parent().parent().remove();
     $("#file1").css('height', '100%');
+    $("#file1").css('width', '100%');
     $("#vs1").css('opacity', '100');
     $("#file1").val('');
   });
@@ -163,10 +166,12 @@ $(document).on('turbolinks:load', function() {
     reader.onload = (function(file) {
       return function(e) {
         // .prevewの領域の中にロードした画像を表示するimageタグを追加
+        $('#file2').siblings('.sell-upload-figure').remove();
         var imgsrc = e.target.result;
         var imgHtml = buildHTML(imgsrc);
         $preview2.append(imgHtml);
-        $("#file2").css('height', '0%');
+        $("#file2").css('height', '44px');
+        $("#file2").css('width', '50%');
         $("#vs2").css('opacity', '0');
       };
     })(file);
@@ -176,6 +181,7 @@ $(document).on('turbolinks:load', function() {
   $('#item2').on("click", ".sell-upload-delete", function(e){
     $(this).parent().parent().remove();
     $("#file2").css('height', '100%');
+    $("#file2").css('width', '100%');
     $("#vs2").css('opacity', '100');
     $("#file2").val('');
   });
@@ -193,10 +199,12 @@ $(document).on('turbolinks:load', function() {
     reader.onload = (function(file) {
       return function(e) {
         // .prevewの領域の中にロードした画像を表示するimageタグを追加
+        $('#file3').siblings('.sell-upload-figure').remove();
         var imgsrc = e.target.result;
         var imgHtml = buildHTML(imgsrc);
         $preview3.append(imgHtml);
-        $("#file3").css('height', '0%');
+        $("#file3").css('height', '44px');
+        $("#file3").css('width', '50%');
         $("#vs3").css('opacity', '0');
       };
     })(file);
@@ -206,6 +214,7 @@ $(document).on('turbolinks:load', function() {
   $('#item3').on("click", ".sell-upload-delete", function(e){
     $(this).parent().parent().remove();
     $("#file3").css('height', '100%');
+    $("#file3").css('width', '100%');
     $("#vs3").css('opacity', '100');
     $("#file3").val('');
   });
@@ -223,10 +232,12 @@ $(document).on('turbolinks:load', function() {
     reader.onload = (function(file) {
       return function(e) {
         // .prevewの領域の中にロードした画像を表示するimageタグを追加
+        $('#file4').siblings('.sell-upload-figure').remove();
         var imgsrc = e.target.result;
         var imgHtml = buildHTML(imgsrc);
         $preview4.append(imgHtml);
-        $("#file4").css('height', '0%');
+        $("#file4").css('height', '44px');
+        $("#file4").css('width', '50%');
         $("#vs4").css('opacity', '0');
       };
     })(file);
@@ -236,8 +247,8 @@ $(document).on('turbolinks:load', function() {
   $('#item4').on("click", ".sell-upload-delete", function(e){
     $(this).parent().parent().remove();
     $("#file4").css('height', '100%');
+    $("#file4").css('width', '100%');
     $("#vs4").css('opacity', '100');
     $("#file4").val('');
   });
-
 });

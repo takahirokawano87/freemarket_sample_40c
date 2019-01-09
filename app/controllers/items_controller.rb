@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show,:buy,:pay]
+  before_action :set_item, only: [:show, :edit, :update, :buy, :pay]
   before_action :set_sell_items, :set_delivery, :set_category_items, only: :show
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @items = Item.where(params[:id]).order('created_at DESC').limit(4)
+    @items = Item.order('created_at DESC').limit(4)
   end
 
   def new
@@ -23,6 +23,17 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @item.seller_id == current_user.id
+      @item.update(item_params)
+      redirect_to item_path(@item)
+    end
   end
 
   def buy
@@ -41,10 +52,23 @@ class ItemsController < ApplicationController
     @item.save
     redirect_to item_url(@item)
   end
+  
+  def search
+    @items = Item.where('name LIKE(?) or description LIKE(?)', "%#{params[:keyword]}%", "%#{params[:keyword]}%").order('created_at DESC')
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    if @item.destroy
+      flash[:notice] = "商品を削除しました"
+      redirect_to mypage_users_path
+    end
+  end
+
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :first_category_id, :second_category_id, :third_category_id, :size_id, :brand_id, :condition, :price, image_attributes: [:image1, :image2, :image3, :image4], delivery_attributes: [:fee, :kind, :area, :delivery_days]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :description, :first_category_id, :second_category_id, :third_category_id, :size_id, :brand_id, :condition, :price, image_attributes: [:id, :image1, :image2, :image3, :image4], delivery_attributes: [:id, :fee, :kind, :area, :delivery_days]).merge(seller_id: current_user.id)
   end
 
   def set_item

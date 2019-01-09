@@ -4,8 +4,8 @@
       %h1.left
         = link_to root_path do
           = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?206587138", size: "134x36"
-      = form_with url: items_path, class: "header__inner-upper-form right", method: :get, local: true do |f|
-        = f.text_field :keyword, type: 'search', class: 'input-area', placeholder: "キーワードから探す"
+      = form_with url: search_items_path, class: "header__inner-upper-form right", method: :get, local: true do |f|
+        = f.text_field :keyword, type: 'search', class: 'input-area', placeholder: "キーワードから探す", value: "#{params[:keyword]}"
         = button_tag type: 'submit', class: "search" do
           %i.fa.fa-search
     .header__inner-nav.clearfix
@@ -87,7 +87,8 @@
                   %figure
                     %div
                       %img{:alt => "", :src => "//static-mercari-jp-imgtr2.akamaized.net/thumb/members/508352206.jpg?1432605748", :width => "60"}/
-                    %figcaption 馬馬馬
+                    %figcaption
+                      = current_user.nickname
                   %ul.pc-header-mypage-review-listing
                     %li
                       %a{:href => "https://www.mercari.com/jp/mypage/review/history/"} 評価: 6
@@ -169,3 +170,6 @@
             .header-login-nav
               = link_to "ログイン", new_user_session_path, class: 'header-btn btn-red'
               = link_to "新規会員登録", registration_users_path, class: 'header-btn header-signup'
+- if flash[:notice]
+  .flash
+    = flash[:notice]

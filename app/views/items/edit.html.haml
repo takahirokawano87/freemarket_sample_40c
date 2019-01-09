@@ -1,0 +1,167 @@
+.single-container
+  .single-header
+    %h1.single-header-h1
+      %a.single-header-a{:href => "/"}
+        %img.single-header-img{:alt => "mercari", :height => "49px", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?819506670", :width => "185px"}/
+  %main.single-main
+    %section.l-single-container.buy-item-container
+      #sell-container
+        %div{"data-reactroot" => ""}
+          .sell-container-inner
+            %h2.l-single-head 商品の情報を入力
+            = form_for @item, :html => {:class => "sell-form"}, url: item_path do |f|
+              = f.fields_for :image do |i|
+                .sell-upload-box
+                  = i.label '出品画像', class: 'sell-upload-head'
+                  %span.form-require 必須
+                  %p.sell-upload-head-p 最大4枚までアップロードできます
+                  .sell-dropbox-container.clearfix.state-image-number-4
+                    .sell-upload-items-container
+                      .sell-upload-items.have-item-0
+                        %ul.sell-upload-items-ul
+                    .sell-upload-drop-box#item1
+                      = i.file_field :image1, class: 'sell-upload-drop-file', id: 'file1'
+                      %pre.visible-pc#vs1
+                        :preserve
+                          ドラッグアンドドロップ
+                          またはクリックしてファイルをアップロード
+                      %i.icon-camera
+                    .sell-upload-drop-box#item2
+                      = i.file_field :image2, class: 'sell-upload-drop-file', id: 'file2'
+                      %pre.visible-pc#vs2
+                        :preserve
+                          ドラッグアンドドロップ
+                          またはクリックしてファイルをアップロード
+                      %i.icon-camera
+                    .sell-upload-drop-box#item3
+                      = i.file_field :image3, class: 'sell-upload-drop-file', id: 'file3'
+                      %pre.visible-pc#vs3
+                        :preserve
+                          ドラッグアンドドロップ
+                          またはクリックしてファイルをアップロード
+                      %i.icon-camera
+                    .sell-upload-drop-box#item4
+                      = i.file_field :image4, class: 'sell-upload-drop-file', id: 'file4'
+                      %pre.visible-pc#vs4
+                        :preserve
+                          ドラッグアンドドロップ
+                          またはクリックしてファイルをアップロード
+                      %i.icon-camera
+              .sell-content
+                .form-group
+                  = f.label '商品名', class: 'form-group-label'
+                  %span.form-require 必須
+                  %div
+                    = f.text_field :name, class: 'input-default', placeholder: '商品名（必須 40文字まで)'
+                .form-group
+                  = f.label '商品の説明', class: 'form-group-label'
+                  %span.form-require 必須
+                  = f.text_area :description, class: 'textarea-default', placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', rows: '5'
+              .sell-content.clearfix
+                %h3.sell-sub-head 商品の詳細
+                .sell-form-box
+                  .form-group
+                    = f.label 'カテゴリー', class: 'form-group-label'
+                    %span.form-require 必須
+                    %div
+                      .select-wrap{name: "drop1"}
+                        = f.collection_select :first_category_id, FirstCategory.all, :id, :name, prompt: '---', class: 'select-default'
+                        %i.fas.fa-angle-down
+                      .select-wrap{name: "drop2", style: "display: none;"}
+                        = f.collection_select :second_category_id, SecondCategory.all, :id, :name, prompt: '---', class: 'select-default'
+                        %i.fas.fa-angle-down
+                      .select-wrap{name: "drop3", style: "display: none;"}
+                        = f.collection_select :third_category_id, ThirdCategory.all, :id, :name, prompt: '---', class: 'select-default'
+                        %i.fas.fa-angle-down
+                  .form-group{name: "size", style: "display: none;"}
+                    = f.label 'サイズ', class: 'form-group-label'
+                    %span.form-require 必須
+                    .select-wrap
+                      = f.collection_select :size_id, Size.all, :id, :name, prompt: '---', class: 'select-default'
+                      %i.fas.fa-angle-down
+                  .form-group.form-suggest-container{name: "brand", style: "display: none;"}
+                    %label.form-group-label
+                      ブランド
+                      %span.form-arbitrary 任意
+                    %div
+                      = f.text_field :brand_id, class: 'input-default', placeholder: "例）シャネル"
+                      %div
+                  .form-group
+                    = f.label '商品の状態', class: 'form-group-label'
+                    %span.form-require 必須
+                    .select-wrap
+                      = f.select :condition, [["新品、未使用", "新品、未使用"], ["未使用に近い", "未使用に近い"], ["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"], ["傷や汚れあり", "傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"]], prompt: '---', class: 'select-default'
+                      %i.fas.fa-angle-down
+
+              .sell-content.clearfix
+                %h3.sell-sub-head 配送について
+                %a.form-question{:href => "/jp/help_center/article/68/", :target => "_blank"} ?
+                .sell-form-box
+                  = f.fields_for :delivery do |i|
+                    .form-group
+                      = i.label '配送料の負担', class: 'form-group-label'
+                      %span.form-require 必須
+                      .select-wrap
+                        = i.select :fee, [["送料込み(出品者負担)", "送料込み(出品者負担)", {class: "2"}], ["着払い(購入者負担)", "着払い(購入者負担)", {class: "1"}]], prompt: '---', class: 'select-default'
+                        %i.fas.fa-angle-down
+                    .form-group{name: "d_method", style: "display: none;"}
+                      = i.label '配送の方法', class: 'form-group-label'
+                      %span.form-require 必須
+                      .select-wrap
+                        = i.select :kind, [["未定", "未定", {class: "2"}], ["らくらくメルカリ便", "らくらくメルカリ便", {class: "2"}], ["ゆうメール", "ゆうメール", {class: "2"}], ["レターパック", "レターパック", {class: "2"}], ["普通郵便(定形、定形外)", "普通郵便(定形、定形外)", {class: "2"}], ["クロネコヤマト", "クロネコヤマト", {class: "2"}], ["ゆうパック", "ゆうパック", {class: "2"}], ["クリックポスト", "クリックポスト", {class: "2"}], ["ゆうパケット", "ゆうパケット", {class: "2"}], ["未定", "未定", {class: "1"}], ["クロネコヤマト", "クロネコヤマト", {class: "1"}], ["ゆうパック", "ゆうパック", {class: "1"}], ["ゆうメール", "ゆうメール", {class: "1"}]], prompt: '---', class: 'select-default'
+                        %i.fas.fa-angle-down
+                    .form-group
+                      = i.label '発送元の地域', class: 'form-group-label'
+                      %span.form-require 必須
+                      .select-wrap
+                        = i.select :area, [["北海道", "北海道"], ["青森県", "青森県"], ["岩手県", "岩手県"], ["宮城県", "宮城県"], ["秋田県", "秋田県"], ["山形県", "山形県"], ["福島県", "福島県"], ["茨城県", "茨城県"], ["栃木県", "栃木県"], ["群馬県", "群馬県"], ["埼玉県", "埼玉県"], ["千葉県", "千葉県"], ["東京都", "東京都"], ["神奈川県", "神奈川県"], ["新潟県", "新潟県"], ["富山県", "富山県"], ["石川県", "石川県"], ["福井県", "福井県"], ["山梨県", "山梨県"], ["長野県", "長野県"], ["岐阜県", "岐阜県"], ["静岡県", "静岡県"], ["愛知県", "愛知県"], ["三重県", "三重県"], ["滋賀県", "滋賀県"], ["京都府", "京都府"], ["大阪府", "大阪府"], ["兵庫県", "兵庫県"], ["奈良県", "奈良県"], ["和歌山県", "和歌山県"], ["鳥取県", "鳥取県"], ["島根県", "島根県"], ["岡山県", "岡山県"], ["広島県", "広島県"], ["山口県", "山口県"], ["徳島県", "徳島県"], ["香川県", "香川県"], ["愛媛県", "愛媛県"], ["高知県", "高知県"], ["福岡県", "福岡県"], ["佐賀県", "佐賀県"], ["長崎県", "長崎県"], ["熊本県", "熊本県"], ["大分県", "大分県"], ["宮崎県", "宮崎県"], ["鹿児島県", "鹿児島県"], ["沖縄県", "沖縄県"], ["未定", "未定"]], prompt: '---', class: 'select-default'
+                        %i.fas.fa-angle-down
+                    .form-group
+                      = i.label '発送までの日数', class: 'form-group-label'
+                      %span.form-require 必須
+                      .select-wrap
+                        = i.select :delivery_days, [["1~2日で発送", "1~2日で発送"], ["2~3日で発送", "2~3日で発送"], ["4~7日で発送", "4~7日で発送"]], prompt: '---', class: 'select-default'
+                        %i.fas.fa-angle-down
+
+              .sell-content.clearfix
+                %h3.sell-sub-head 販売価格(300〜9,999,999)
+                %a.form-question{:href => "/jp/help_center/article/64/", :target => "_blank"} ?
+                .sell-form-box
+                  %ul.sell-price
+                    %li.form-group
+                      .clearfix
+                        %label.l-left
+                          価格
+                          %span.form-require 必須
+                        .l-right.sell-price-input
+                          ¥
+                          %div.sell-price-input-div
+                            = f.text_field :price, class: 'input-default', id: 'selling-price', placeholder: "例）300"
+                    %li.clearfix
+                      .l-left
+                        販売手数料 (10%)
+                      .l-right-commission
+                    %li.clearfix.bold
+                      .l-left 販売利益
+                      .l-right-gain
+              .modal{:role => "dialog", :tabindex => "-1"}
+                .modal-inner
+              .sell-content.sell-btn-box
+                %button.btn-default.btn-red{:type => "submit"}
+                  変更する
+                = link_to 'キャンセル', :back, class: "btn-default btn-gray"
+            .overlay
+  .single-footer
+    %nav
+      %ul.clearfix
+        %li
+          %a{:href => "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
+        %li
+          %a{:href => "https://www.mercari.com/jp/tos/"} メルカリ利用規約
+        %li
+          %a{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
+    %nav
+      %a.single-footer-logo{:href => "https://www.mercari.com/jp/"}
+        %img{:alt => "mercari", :height => "65", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?819506670", :width => "80"}/
+      %p
+        %small © 2018 Mercari

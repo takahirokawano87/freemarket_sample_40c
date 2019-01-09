@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  }
   root 'items#index'
   resources :items do
     member do
       get 'buy'
       post 'pay'
+    end
+    collection do
+      get 'search'
     end
   end
   get 'personal_datas/' => "personal_datas#identification"
