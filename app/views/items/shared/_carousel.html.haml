@@ -1,43 +1,30 @@
-= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
-= javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-#carousel-sample.carousel.slide
-  %ol.carousel-indicators
-    %li.active{"data-slide-to" => "0", "data-target" => "#carousel-sample"}
-    %li{"data-slide-to" => "1", "data-target" => "#carousel-sample"}
-    %li{"data-slide-to" => "2", "data-target" => "#carousel-sample"}
-    %li{"data-slide-to" => "3", "data-target" => "#carousel-sample"}
-  .carousel-inner{:role => "listbox"}
-    .item.active
-      .top-main-visual
-        .top-main-visual-content
-          %h2
-            スマホでかんたん
-            %br/
-            フリマアプリ
-          %p
-            メルカリはスマホカメラからすぐに出品のできる
-            %br/
-            購入時も安心な独自システムのアプリです
-          %div{:clearfix => "", "top-main-visual-store" => ""}
-            %a.pull-left{:href => "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", :target => "_blank"}
-              %img{:alt => "", :height => "50", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?206587138"}/
-            %a.pull-left{:href => "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", :target => "_blank"}
-              %img{:alt => "", :height => "50", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?206587138", :style => "margin-left:15px;"}/
-        .top-main-visual-img
-          %img.one{:alt => "...", :src => "//www-mercari-jp.akamaized.net/assets/img/common/jp/top/main_content_pc.png?206587138"}/
-      .carousel-caption
-    .item.item2
-      .top-main-visual
-        .carousel-caption
-    .item.item3
-      .top-main-visual
-        .carousel-caption
-    .item.item4
-      .top-main-visual
-        .carousel-caption
-  %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-sample", :role => "button"}
-    %img.glyphicon-chevron-left{:src => "https://www.mercari.com/jp/assets/img/common/jp/top/carousel-prev.png"}/
-    %span.sr-only 戻る
-  %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-sample", :role => "button"}
-    %img.glyphicon-chevron-right{:src => "https://www.mercari.com/jp/assets/img/common/jp/top/carousel-next.png"}/
-    %span.sr-only 次へ
+= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css'
+= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css'
+= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js'
+= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js'
+
+
+%ul.slick
+  %li.slide1
+    .top-main-visual
+      .top-main-visual-content
+        %h2
+          スマホでかんたん
+          %br/
+          フリマアプリ
+        %p
+          メルカリはスマホカメラからすぐに出品のできる
+          %br/
+          購入時も安心な独自システムのアプリです
+        %div{:clearfix => "", "top-main-visual-store" => ""}
+          %a.pull-left{:href => "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", :target => "_blank"}
+            %img{:alt => "", :height => "50", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?206587138"}/
+          %a.pull-left{:href => "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", :target => "_blank"}
+            %img{:alt => "", :height => "50", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?206587138", :style => "margin-left:15px;"}/
+      .top-main-visual-img
+        %img.one{:alt => "...", :src => "//www-mercari-jp.akamaized.net/assets/img/common/jp/top/main_content_pc.png?206587138"}/
+  %li.slide2
+
+  %li.slide3
+
+  %li.slide4
