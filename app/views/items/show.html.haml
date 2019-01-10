@@ -1,6 +1,12 @@
 = render partial: 'items/shared/header'
 = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
 = javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+%nav{"aria-label" => "パンくずリスト"}
+  %ol.breadcrumb.mb-1
+    %li.breadcrumb-item
+      %a{:href => "#"} メルカリ
+    %li.breadcrumb-item.active{"aria-current" => "page"}
+      = @item.name
 .item__box-container
   %h1.item-name
     =@item.name
