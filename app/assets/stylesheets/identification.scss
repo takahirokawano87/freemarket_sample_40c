@@ -150,16 +150,17 @@
   text-align: center;
 }
 
-.fa-angle-right {
-  float: right;
-  color: #4689FF;
-  font-size: 21px;
-}
-
-.a_bottom {
-  float: right;
-  .a_bottom__span {
-    font-size: 15px;
+.personal {
+  .fa-angle-right {
+    float: right;
     color: #4689FF;
+    font-size: 21px;
+  }
+  .a_bottom {
+    float: right;
+    .a_bottom__span {
+      font-size: 15px;
+      color: #4689FF;
+    }
   }
 }
